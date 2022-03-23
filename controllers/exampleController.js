@@ -1,5 +1,3 @@
-const { User } = require("../models");
-
 // Display a listing of the resource.
 async function index(req, res) {}
 
