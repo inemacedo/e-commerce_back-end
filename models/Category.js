@@ -1,25 +1,23 @@
 module.exports = (sequelize, Model, DataTypes) => {
-  class Article extends Model {}
+  class Category extends Model {}
 
-  Article.init(
+  Category.init(
     {
       id: {
         type: DataTypes.BIGINT.UNSIGNED,
         primaryKey: true,
         autoIncrement: true,
       },
-      title: {
+      name: {
         type: DataTypes.STRING,
-      },
-      content: {
-        type: DataTypes.TEXT,
+        allowNull: false,
       },
     },
     {
       sequelize,
-      modelName: "article",
-    }
+      modelName: "category",
+    },
   );
 
-  return Article;
+  return Category;
 };
