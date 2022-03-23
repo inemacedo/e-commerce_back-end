@@ -1,7 +1,9 @@
-const publicRoutes = require("./publicRoutes");
-const privateRoutes = require("./privateRoutes");
+const userRoutes = require("./userRoutes");
+const adminRoutes = require("./adminRoutes");
+const productRoutes = require("./productRoutes");
 
 module.exports = (app) => {
-  app.use(publicRoutes);
-  app.use(privateRoutes);
+  app.use(userRoutes);
+  app.use(adminRoutes);
+  app.use(productRoutes);
 };
