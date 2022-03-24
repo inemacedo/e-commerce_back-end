@@ -1,4 +1,4 @@
-const { User, Tweet } = require("../models");
+/* const { User, Tweet } = require("../models");
 const jwt = require("jsonwebtoken");
 
 async function newToken(req, res) {
@@ -23,3 +23,4 @@ async function newToken(req, res) {
 module.exports = {
   newToken,
 };
+ */
