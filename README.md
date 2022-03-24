@@ -1,17 +1,12 @@
-# Twitter api
+# Ecommerce api
 
 ## Public Routes
 
-GET:    /users
-
-GET:    /users/:username
-
-POST:   /users
-
-GET:    /tweets/random
-
-GET:    /tweets/:id
-
+GET:    /users 
+GET:    /users/:username 
+POST:   /users 
+GET:    /tweets/random 
+GET:    /tweets/:id 
 POST:   /tokens
 
 ## Private Routes
