@@ -1,8 +1,8 @@
 
 const products = [
   {
-    title: "Producto 1",
-    description: "Descripcion de Producto 1",
+    title: "Mesa De Centro",
+    description: "Mesa De Centro Alaia De Madera Maciza De Acacia Con Acabado Natural 115cm x 65cm",
     price: 10,
     image: "imagen 1",
     stock: 1,
