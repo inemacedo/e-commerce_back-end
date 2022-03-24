@@ -1,6 +1,6 @@
 module.exports = (sequelize, Model, DataTypes) => {
   class Product extends Model {
-    validatePassword(){
+    validatePassword() {
       console.log("Aca se valida la password con bcrypt...");
     }
   }
@@ -31,6 +31,18 @@ module.exports = (sequelize, Model, DataTypes) => {
       },
       featured: {
         type: DataTypes.BOOLEAN,
+      },
+      measures: {
+        type: DataTypes.STRING,
+      },
+      style: {
+        type: DataTypes.STRING,
+      },
+      material: {
+        type: DataTypes.STRING,
+      },
+      environment: {
+        type: DataTypes.STRING,
       },
     },
     {
