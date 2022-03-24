@@ -14,7 +14,7 @@ const products = [
     price: 444,
     image: "https://f.fcdn.app/imgs/cccdb6/www.kavehome.com.uy/kaveuy/24ba/webp/catalogo/CC210_8MV12_1/900x1125/silla-doriane-de-madera-maciza-de-roble-acabado-natural-y-asiento-de-tela.jpg",
     stock: 1,
-    featured: true,
+    featured: false,
   },
   {
     title: "Silla Konna Gris Oscuro Patas De Madera Maciza De Fresno",
@@ -38,7 +38,7 @@ const products = [
     price: 496,
     image: "https://f.fcdn.app/imgs/0b0aa5/www.kavehome.com.uy/kaveuy/86d9/webp/catalogo/CC1347M87_CC1347M87_1/900x1125/mesa-batilde-madera-maciza-caucho-con-chapa-de-fresno-70-x-140-cm-mesa-batilde-madera-maciza-caucho-con-chapa-de-fresno-70-x-140-cm.jpg",
     stock: 1,
-    featured: false,
+    featured: true,
   },
   {
     title: "Mesa Redonda Maial Madera Maciza Teca Ø 90 Cm",
@@ -54,7 +54,7 @@ const products = [
     price: 1552,
     image: "https://f.fcdn.app/imgs/757013/www.kavehome.com.uy/kaveuy/438e/webp/catalogo/S481_LD03_1/900x1125/sofa-narnia-3-plazas-marron-192-cm.jpg",
     stock: 1,
-    featured: false,
+    featured: true,
   },
   {
     title: "Sofá Gilma 3 Plazas Con Chaise Longue Derecho Gris Patas Acabado Natural 260 Cm",
