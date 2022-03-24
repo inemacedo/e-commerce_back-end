@@ -6,7 +6,7 @@ const products = [
     price: 10,
     image: "imagen 1",
     stock: 1,
-    featured: false,
+    featured: true,
   },
   {
     title: "Producto 2",
@@ -14,7 +14,7 @@ const products = [
     price: 10,
     image: "imagen 1",
     stock: 1,
-    featured: false,
+    featured: true,
   },
   {
     title: "Producto 3",
