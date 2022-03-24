@@ -4,16 +4,36 @@ const { User, Product } = require("../models");
 
 // Display a listing of the resource.
 async function getAll(req, res) {  
-  const products = await Product.findAll();
-  if(products) return res.json(products);
-  return res.json({msg: "Prueba1"});
+  try {
+    const products = (req.query.featured) ? await Product.findAll({
+      where: {
+        featured: true
+      },
+      limit: 3
+    }) : await Product.findAll({
+      limit: 10
+    });
+
+    if(products) return res.json(products);
+  
+  } catch (error) {
+    return res.status(500).json({msg: "Server error"});
+  }
 }
 
 // Display the specified resource.
 async function getOne(req, res) {
-  const products = await Product.findAll();
-  if(products) return res.json(products);
-  return res.json({msg: "Prueba1"});
+  try {
+    const product = await Product.findOne({
+      where: {
+        id: req.params.id
+      }
+    });
+    if(product) return res.json(product);
+    
+  } catch (error) {
+    return res.status(500).json({msg: "Server error"});
+  }
 }
 
 // Display the specified resource.

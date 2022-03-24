@@ -2,12 +2,12 @@
 
 ## Public Routes
 
-GET:    /users 
-GET:    /users/:username 
-POST:   /users 
-GET:    /tweets/random 
-GET:    /tweets/:id 
-POST:   /tokens
+GET:    /users  
+GET:    /users/:username  
+POST:   /users  
+GET:    /tweets/random  
+GET:    /tweets/:id  
+POST:   /tokens  
 
 ## Private Routes
 ### Necesario logearse antes (solicitar token)
