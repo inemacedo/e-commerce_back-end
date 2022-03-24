@@ -10,7 +10,11 @@ async function getAll(req, res) {
 }
 
 // Display the specified resource.
-async function getOne(req, res) {}
+async function getOne(req, res) {
+  const products = await Product.findAll();
+  if(products) return res.json(products);
+  return res.json({msg: "Prueba1"});
+}
 
 // Display the specified resource.
 async function show(req, res) {}
