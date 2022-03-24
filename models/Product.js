@@ -1,5 +1,9 @@
 module.exports = (sequelize, Model, DataTypes) => {
-  class Product extends Model {}
+  class Product extends Model {
+    validatePassword(){
+      console.log("Aca se valida la password con bcrypt...");
+    }
+  }
 
   Product.init(
     {
