@@ -1,39 +1,15 @@
 const express = require("express");
-const userController = require("../controllers/userController");
-const tweetController = require("../controllers/tweetController");
 const checkJwt = require("express-jwt");
-const privateRouter = express.Router();
+const userController = require("../controllers/userController");
+const userRoutes = express.Router();
 
-// Rutas Privadas (implica estar logeado):
-privateRouter.use(
-  checkJwt({ secret: process.env.JWT_SECRET, algorithms: ["HS256"] })
-);
 
-// USERS ROUTES:
+userRoutes.get("/users/:id", userController.getOne);
 
-// Update User data
-privateRouter.patch("/users", userController.update);
+userRoutes.post("/users", userController.store);
 
-// Update User image
-privateRouter.post("/users/img-profile", userController.imgProfile);
+userRoutes.patch("/users/:id", checkJwt({ secret: process.env.JWT_SECRET, algorithms: ["HS256"] }), userController.update);
 
-// Toggle follower on user
-privateRouter.post("/users/:id/follow", userController.follow);
+userRoutes.delete("/users/:id", checkJwt({ secret: process.env.JWT_SECRET, algorithms: ["HS256"] }), userController.destroy);
 
-// TWEETS ROUTES:
-
-privateRouter.get("/tweets", tweetController.getInterestedTweets);
-
-// Post a new Tweet
-privateRouter.post("/tweets", tweetController.store);
-
-// Update a Tweet
-// privateRouter.put("/tweets/:id", tweetController.update );
-
-// Delete a Tweet
-privateRouter.delete("/tweets/:id", tweetController.destroy);
-
-// Toggle Like on a Tweet
-privateRouter.patch("/tweets/:id", tweetController.toggleLike);
-
-module.exports = privateRouter;
+module.exports = userRoutes;

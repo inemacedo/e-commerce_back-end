@@ -1,20 +1,15 @@
 const express = require("express");
-const publicRouter = express.Router();
-const userController = require("../controllers/userController");
-const tweetController = require("../controllers/tweetController");
-const authController = require("../controllers/authController");
+const productController = require("../controllers/productController");
+const productRouter = express.Router();
 
 
-publicRouter.get("/users", userController.getAllUsers);
+productRouter.get("/users/:id", productController.getOne);
 
-publicRouter.get("/users/:username", userController.getUser);
+productRouter.post("/users", productController.store);
 
-publicRouter.post("/users", userController.store);
+productRouter.patch("/users/:id", productController.update);
 
-publicRouter.get("/tweets/random", tweetController.getAllTweets);
+productRouter.delete("/users/:id", productController.destroy);
 
-publicRouter.get("/tweets/:id", tweetController.getTweet);
 
-publicRouter.post("/tokens", authController.newToken);
-
-module.exports = publicRouter;
+module.exports = productRouter;
