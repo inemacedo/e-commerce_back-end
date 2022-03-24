@@ -19,12 +19,12 @@ const Product = require("./Product")(sequelize, Model, DataTypes);
 
 // Luego de definir los modelos, se pueden establecer relaciones
 // entre los mismos...
-User.hasMany(Order);
-Order.belongsTo(User);
-Order.hasMany(Product);
-Product.hasMany(Order);
-Product.belongsTo(Category);
-Category.hasMany(Product);
+// User.hasMany(Order);
+// Order.belongsTo(User);
+// Order.hasMany(Product);
+// Product.hasMany(Order);
+// Product.belongsTo(Category);
+// Category.hasMany(Product);
 
 module.exports = {
   sequelize,

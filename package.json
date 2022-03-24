@@ -18,8 +18,5 @@
     "sequelize": "^6.6.5",
     "sqlite3": "^5.0.2"
   },
-  "description": "Hack Academy - Ejemplo de MVC y Sequelize",
-  "devDependencies": {
-    "@faker-js/faker": "^6.0.0-alpha.5"
-  }
+  "description": "Hack Academy - Ejemplo de MVC y Sequelize"
 }
