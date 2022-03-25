@@ -1,3 +1,6 @@
+const bcryptjs = require("bcryptjs");
+const saltRounds = 8;
+
 module.exports = (sequelize, Model, DataTypes) => {
   class User extends Model {}
 
@@ -39,6 +42,18 @@ module.exports = (sequelize, Model, DataTypes) => {
       modelName: "user",
     },
   );
+  User.beforeBulkCreate(async (users, options) => {
+    for (const user of users) {
+      const hashedPassword = await bcryptjs.hash(user.password, saltRounds);
+      user.password = hashedPassword;
+    }
+  });
+
+  User.beforeCreate(async (user, options) => {
+    const hashedPassword = await bcryptjs.hash(user.password, saltRounds);
+    user.password = hashedPassword;
+    console.log(user.password);
+  });
 
   return User;
 };

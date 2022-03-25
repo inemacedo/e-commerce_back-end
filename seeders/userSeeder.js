@@ -23,12 +23,10 @@ const users = [
     phone: "099123123",
     email: "ines@gmail.com",
     password: "password",
-  }
+  },
 ];
 
 module.exports = async () => {
-  await User.deleteMany();
-
-  await User.create(users);
+  await User.bulkCreate(users);
   console.log("Se corrió el seeder de Usuarios.");
 };
