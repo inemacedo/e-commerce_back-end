@@ -2,7 +2,12 @@ const bcryptjs = require("bcryptjs");
 const saltRounds = 8;
 
 module.exports = (sequelize, Model, DataTypes) => {
-  class User extends Model {}
+  class User extends Model {
+    async checkUser(password) {
+      const match = await bcryptjs.compare(password, this.password);
+      return match;
+    }
+  }
 
   User.init(
     {

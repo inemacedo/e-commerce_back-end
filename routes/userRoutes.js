@@ -2,9 +2,6 @@ const express = require("express");
 const checkJwt = require("express-jwt");
 const userController = require("../controllers/userController");
 const userRoutes = express.Router();
-const authController = require("../controllers/authController");
-
-userRoutes.post("/login", authController.newToken);
 
 userRoutes.get("/users/:id", userController.getOne);
 
