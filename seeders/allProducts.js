@@ -1,6 +1,8 @@
 const products = [
   {
     title: "Mesa De Centro",
+    imageenvironment:
+      "https://f.fcdn.app/imgs/069bb9/www.kavehome.com.uy/kaveuy/3a7a/webp/catalogo/CC6003M43_CC6003M43_3/900x1125/mesa-de-centro-alaia-de-madera-maciza-de-acacia-con-acabado-natural-115-x-65-cm-mesa-de-centro-alaia-de-madera-maciza-de-acacia-con-acabado-natural-115-x-65-cm.jpg",
     description: "Mesa De Centro Alaia De Madera Maciza De Acacia Con Acabado Natural 115cm x 65cm",
     price: 756,
     image:
@@ -14,6 +16,8 @@ const products = [
   },
   {
     title: "Silla Doriane De Madera Maciza - De Roble Acabado Natural Y Asiento De Tela",
+    imageenvironment:
+      "https://f.fcdn.app/imgs/e32502/www.kavehome.com.uy/kaveuy/4696/webp/catalogo/CC210_8MV12_2/900x1125/silla-doriane-de-madera-maciza-de-roble-acabado-natural-y-asiento-de-tela.jpg",
     description:
       "La silla Doriane es una pieza artesanal hecha con madera maciza de roble sostenible, ratán trenzado a mano y un asiento con un tapizado efecto lino hidrorepelente.. Ideal para conseguir un comedor de tendencia con look natural gracias a su diseño clásico.",
     price: 444,
@@ -28,6 +32,8 @@ const products = [
   },
   {
     title: "Silla Konna Gris Oscuro Patas De Madera Maciza De Fresno",
+    imageenvironment:
+      "https://f.fcdn.app/imgs/f1502c/www.kavehome.com.uy/kaveuy/58ca/webp/catalogo/CC5212KY15_CC5212KY15_2/900x1125/silla-konna-gris-oscuro-patas-de-madera-maciza-de-fresno-silla-konna-gris-oscuro-patas-de-madera-maciza-de-fresno.jpg",
     description:
       "Para cualquier ocasión, no hay nada que se agradezca más que unas sillas cómodas alrededor de una buena mesa. Con las sillas Konna, además de añadir estilo y marcar tendencia en tu comedor, tienes ese confort que esperas de las largas sobremesas.",
     price: 388,
@@ -42,6 +48,8 @@ const products = [
   },
   {
     title: "Silla Nina Madera Maciza - Eucalipto Y Cuerda Negro",
+    imageenvironment:
+      "https://f.fcdn.app/imgs/0a24e6/www.kavehome.com.uy/kaveuy/b545/webp/catalogo/CC2034J01_CC2034J01_2/1920-1200/silla-nina-madera-maciza-eucalipto-acabado-negro-mate-y-cuerda-negro-silla-nina-madera-maciza-eucalipto-acabado-negro-mate-y-cuerda-negro.jpg",
     description:
       "La silla Nina es un diseño donde la estructura de madera maciza de eucalipto y el trenzado del asiento se han trabajado a mano. Además, los materiales están tratados para aprovechar al máximo sus cualidades. Conócelas y disfruta de una pieza única.",
     price: 472,
@@ -56,6 +64,8 @@ const products = [
   },
   {
     title: "Mesa Batilde Madera Maciza Caucho Con Chapa De Fresno 70 X 140 Cm",
+    imageenvironment:
+      "https://f.fcdn.app/imgs/ad5eee/www.kavehome.com.uy/kaveuy/2330/webp/catalogo/CC1347M87_CC1347M87_2/900x1125/mesa-batilde-madera-maciza-caucho-con-chapa-de-fresno-70-x-140-cm-mesa-batilde-madera-maciza-caucho-con-chapa-de-fresno-70-x-140-cm.jpg",
     description:
       "Todo lo bueno ocurre alrededor de una mesa. Así que, si quieres escogerla bien, apuesta por aquella que más hable de ti. La mesa Batilde es exclusiva como tú, al ser de madera maciza de caucho, con tonalidades y vetas únicas.",
     price: 496,
@@ -70,6 +80,8 @@ const products = [
   },
   {
     title: "Mesa Redonda Maial Madera Maciza Teca Ø 90 Cm",
+    imageenvironment:
+      "https://f.fcdn.app/imgs/72e417/www.kavehome.com.uy/kaveuy/3fe8/webp/catalogo/S418VA_12_1/900x1125/butaca-glam-beige.jpg",
     description:
       "¿Comedor pequeño? Welcome! La mesa Maial es la pieza ideal para espacios reducidos. Es de madera maciza de teca, con unas tonalidades que mantienen la luminosidad y amplitud de la estancia, y es redonda por lo que aprovechas al máximo el espacio.",
     price: 1040,
@@ -84,6 +96,8 @@ const products = [
   },
   {
     title: "Sofá Narnia 3 Plazas - Marrón 192 Cm",
+    imageenvironment:
+      "https://f.fcdn.app/imgs/73c92e/www.kavehome.com.uy/kaveuy/bdde/webp/catalogo/S481_LD03_2/900x1125/sofa-narnia-3-plazas-marron-192-cm.jpg",
     description:
       "Sofá 3 plazas tapizado con tela Lido tratamiento Teflón antimanchas. Asientos y respaldo desenfundables. Pies en madera de haya natural.",
     price: 1552,
@@ -98,6 +112,8 @@ const products = [
   },
   {
     title: "Sofá Gilma 3 Plazas Con Chaise Longue Derecho Gris Patas Acabado Natural 260 Cm",
+    imageenvironment:
+      "https://f.fcdn.app/imgs/0a6378/www.kavehome.com.uy/kaveuy/7a2e/webp/catalogo/S682MN14_S682MN14_2/1920-1200/sofa-gilma-3-plazas-con-chaise-longue-izquierdo-gris-patas-metal-negro-260-cm-sofa-gilma-3-plazas-con-chaise-longue-izquierdo-gris-patas-metal-negro-260-cm.jpg",
     description:
       "Un sofá ideal vivas solo o en compañía, con lugar para todos los de casa. El diseño del sofá Gilma con chaise longue, de líneas sencillas y corte contemporáneo, se ajusta a todo tipo de ambiente añadiendo estilo.",
     price: 2440,
@@ -111,12 +127,14 @@ const products = [
     environment: "Estar, Living",
   },
   {
-    title: "Butaca Glam - Beige",
+    title: "Butaca Glam - Mostaza",
+    imageenvironment:
+      "https://f.fcdn.app/imgs/5905d6/www.kavehome.com.uy/kaveuy/ffb9/webp/catalogo/S418VA_81_2/900x1125/butaca-glam-mostaza.jpg",
     description:
       "Sillón tapizado con tela Varese tratamiento Teflón antimanchas. Pies en madera de haya natural. Cojín incluido.",
     price: 728,
     image:
-      "https://f.fcdn.app/imgs/72e417/www.kavehome.com.uy/kaveuy/3fe8/webp/catalogo/S418VA_12_1/900x1125/butaca-glam-beige.jpg",
+      "https://f.fcdn.app/imgs/5ac0b3/www.kavehome.com.uy/kaveuy/2363/webp/catalogo/S418VA_81_1/900x1125/butaca-glam-mostaza.jpg",
     stock: 1,
     featured: false,
     measures: "Alto: 90 cm x Ancho: 73 cm x Fondo: 85 cm",
