@@ -81,7 +81,7 @@ const products = [
   {
     title: "Mesa Redonda Maial Madera Maciza Teca Ø 90 Cm",
     imageenvironment:
-      "https://f.fcdn.app/imgs/72e417/www.kavehome.com.uy/kaveuy/3fe8/webp/catalogo/S418VA_12_1/900x1125/butaca-glam-beige.jpg",
+      "https://f.fcdn.app/imgs/1e910e/www.kavehome.com.uy/kaveuy/4696/webp/catalogo/CC2125M47_CC2125M47_2/900x1125/mesa-redonda-maial-madera-maciza-teca-90-cm-mesa-redonda-maial-madera-maciza-teca-90-cm.jpg",
     description:
       "¿Comedor pequeño? Welcome! La mesa Maial es la pieza ideal para espacios reducidos. Es de madera maciza de teca, con unas tonalidades que mantienen la luminosidad y amplitud de la estancia, y es redonda por lo que aprovechas al máximo el espacio.",
     price: 1040,
