@@ -5,7 +5,7 @@ const userRoutes = express.Router();
 
 userRoutes.get("/users/:id", userController.getOne);
 
-userRoutes.post("/user", userController.store);
+userRoutes.post("/users", userController.store);
 
 userRoutes.patch(
   "/users/:id",

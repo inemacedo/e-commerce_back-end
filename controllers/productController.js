@@ -35,7 +35,26 @@ async function getOne(req, res) {
 }
 
 // Store a newly created resource in storage.
-async function store(req, res) {}
+async function store(req, res) {
+  try {
+    const product = await Product.create({
+      title: req.body.title,
+      description: req.body.description,
+      image: req.body.image,
+      imageenvironment: req.body.imageenvironment,
+      price: req.body.price,
+      stock: req.body.stock,
+      featured: req.body.featured,
+      measures: req.body.measures,
+      style: req.body.style,
+      material: req.body.material,
+      environment: req.body.environment,
+    });
+    if (product) return res.json({ msg: "Product added successfully!" });
+  } catch (error) {
+    return res.status(500).json({ msg: "Server error" });
+  }
+}
 
 // Update the specified resource in storage.
 async function update(req, res) {}
