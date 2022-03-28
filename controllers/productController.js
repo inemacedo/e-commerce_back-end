@@ -1,4 +1,5 @@
 const { Product } = require("../models");
+const categoryRoutes = require("../routes/categoryRoutes");
 
 // Display a listing of the resource.
 async function getAll(req, res) {
@@ -15,6 +16,21 @@ async function getAll(req, res) {
         });
 
     if (products) return res.json(products);
+  } catch (error) {
+    return res.status(500).json({ msg: "Server error" });
+  }
+}
+
+// Display a listing of the resource by category
+async function getByCategory(req, res) {
+  try {
+    const productsByCategory = req.query.category;
+    await Product.findAll({
+      where: {
+        category: category.name, //??
+      },
+    });
+    if (productsByCategory) return res.json(productsByCategory);
   } catch (error) {
     return res.status(500).json({ msg: "Server error" });
   }
@@ -73,6 +89,7 @@ async function destroy(req, res) {
 
 module.exports = {
   getAll,
+  getByCategory,
   getOne,
   store,
   update,
