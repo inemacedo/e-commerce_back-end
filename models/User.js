@@ -57,7 +57,6 @@ module.exports = (sequelize, Model, DataTypes) => {
   User.beforeCreate(async (user, options) => {
     const hashedPassword = await bcryptjs.hash(user.password, saltRounds);
     user.password = hashedPassword;
-    console.log(user.password);
   });
 
   return User;
