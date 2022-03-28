@@ -13,6 +13,7 @@ const products = [
     style: "Colonia, Rústico",
     material: "Acacia, Hierro, Madera maciza",
     environment: "Living",
+    categoryId: 1,
   },
   {
     title: "Silla Doriane De Madera Maciza - De Roble Acabado Natural Y Asiento De Tela",
@@ -28,7 +29,8 @@ const products = [
     measures: "Al 82,5 cm x An 47 cm x Pr 51 cm",
     style: "Colonial, Rústico, Vintage",
     material: "Espuma, Madera, Ratán, Roble, Tela",
-    environment: "Comedor",
+    material: "Comedor",
+    categoryId: 2,
   },
   {
     title: "Silla Konna Gris Oscuro Patas De Madera Maciza De Fresno",
@@ -45,6 +47,7 @@ const products = [
     style: "Moderno, Nórdico",
     material: "Comedor, Escritorio",
     environment: "Comedor",
+    categoryId: 2,
   },
   {
     title: "Silla Nina Madera Maciza - Eucalipto Y Cuerda Negro",
@@ -61,6 +64,7 @@ const products = [
     style: "Moderno, Nórdico, Vintage",
     material: "Cuerda, Eucalipto, Madera maciza",
     environment: "Comedor, Escritorio, Exterior",
+    categoryId: 2,
   },
   {
     title: "Mesa Batilde Madera Maciza Caucho Con Chapa De Fresno 70 X 140 Cm",
@@ -77,6 +81,7 @@ const products = [
     style: "Moderno, Nórdico",
     material: "Caucho, Madera maciza",
     environment: "Comedor",
+    categoryId: 1,
   },
   {
     title: "Mesa Redonda Maial Madera Maciza Teca Ø 90 Cm",
@@ -93,6 +98,7 @@ const products = [
     style: "Rústico",
     material: "Madera",
     environment: "Comedor",
+    categoryId: 1,
   },
   {
     title: "Sofá Narnia 3 Plazas - Marrón 192 Cm",
@@ -109,6 +115,7 @@ const products = [
     style: "Nórdico",
     material: "Acero, Madera maciza, Tapizado Tela Antimanchas",
     environment: "Estar, Living",
+    categoryId: 3,
   },
   {
     title: "Sofá Gilma 3 Plazas Con Chaise Longue Derecho Gris Patas Acabado Natural 260 Cm",
@@ -125,6 +132,7 @@ const products = [
     style: "Moderno, Nórdico",
     material: "Madera maciza, Eucalipto, Tapizado Tela",
     environment: "Estar, Living",
+    categoryId: 3,
   },
   {
     title: "Butaca Glam - Mostaza",
@@ -141,6 +149,7 @@ const products = [
     style: "Moderno, Nórdico",
     material: "Madera maciza, Tapizado Tela",
     environment: "Estar, Living",
+    categoryId: 3,
   },
 ];
 
