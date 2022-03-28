@@ -1,5 +1,5 @@
 const { User } = require("../models");
-
+const jwt = require("jsonwebtoken");
 // Display a listing of the resource.
 async function index(req, res) {}
 
@@ -20,14 +20,13 @@ async function store(req, res) {
       phone: req.body.phone,
       adress: req.body.adress,
     });
-    req.login(user, (error) => {
-      if (error) {
-        res.status(500).send("Lo sentimos, error inesperado.");
-      }
-      res.redirect("/admin/articulos");
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+      expiresIn: 86400, // 24 hours
     });
+    res.json({ message: "User was registered successfully!", accessToken: token });
+    return;
   } catch (error) {
-    res.status(400).render("error404");
+    res.status(400);
   }
 }
 
