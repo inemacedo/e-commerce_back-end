@@ -12,6 +12,7 @@ async function newToken(req, res) {
         userID: user.id,
       };
       const newJwt = jwt.sign(newPayload, process.env.JWT_SECRET);
+      console.log("JWT creado");
 
       res.json({ id: user.id, email: user.email, token: newJwt });
     }
