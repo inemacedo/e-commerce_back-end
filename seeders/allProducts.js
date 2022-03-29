@@ -13,14 +13,15 @@ const products = [
     style: "Colonia, Rústico",
     material: "Acacia, Hierro, Madera maciza",
     environment: "Living",
+    slug: "mesa-de-centro",
     categoryId: 1,
   },
   {
-    title: "Silla Doriane De Madera Maciza - De Roble Acabado Natural Y Asiento De Tela",
+    title: "Silla Doriane De Madera Maciza",
     imageenvironment:
       "https://f.fcdn.app/imgs/e32502/www.kavehome.com.uy/kaveuy/4696/webp/catalogo/CC210_8MV12_2/900x1125/silla-doriane-de-madera-maciza-de-roble-acabado-natural-y-asiento-de-tela.jpg",
     description:
-      "La silla Doriane es una pieza artesanal hecha con madera maciza de roble sostenible, ratán trenzado a mano y un asiento con un tapizado efecto lino hidrorepelente.. Ideal para conseguir un comedor de tendencia con look natural gracias a su diseño clásico.",
+      "La silla Doriane  de roble acabado natural y asiento de tela es una pieza artesanal hecha con madera maciza de roble sostenible, ratán trenzado a mano y un asiento con un tapizado efecto lino hidrorepelente.. Ideal para conseguir un comedor de tendencia con look natural gracias a su diseño clásico.",
     price: 444,
     image:
       "https://f.fcdn.app/imgs/cccdb6/www.kavehome.com.uy/kaveuy/24ba/webp/catalogo/CC210_8MV12_1/900x1125/silla-doriane-de-madera-maciza-de-roble-acabado-natural-y-asiento-de-tela.jpg",
@@ -29,15 +30,16 @@ const products = [
     measures: "Al 82,5 cm x An 47 cm x Pr 51 cm",
     style: "Colonial, Rústico, Vintage",
     material: "Espuma, Madera, Ratán, Roble, Tela",
-    material: "Comedor",
+    environment: "Comedor",
+    slug: "silla-doriane-de-madera-maciza",
     categoryId: 2,
   },
   {
-    title: "Silla Konna Gris Oscuro Patas De Madera Maciza De Fresno",
+    title: "Silla Konna Gris Oscuro ",
     imageenvironment:
       "https://f.fcdn.app/imgs/f1502c/www.kavehome.com.uy/kaveuy/58ca/webp/catalogo/CC5212KY15_CC5212KY15_2/900x1125/silla-konna-gris-oscuro-patas-de-madera-maciza-de-fresno-silla-konna-gris-oscuro-patas-de-madera-maciza-de-fresno.jpg",
     description:
-      "Para cualquier ocasión, no hay nada que se agradezca más que unas sillas cómodas alrededor de una buena mesa. Con las sillas Konna, además de añadir estilo y marcar tendencia en tu comedor, tienes ese confort que esperas de las largas sobremesas.",
+      "La silla Konna con sus patas de madera maciza de fresno para cualquier ocasión. No hay nada que se agradezca más que unas sillas cómodas alrededor de una buena mesa. Con las sillas Konna, además de añadir estilo y marcar tendencia en tu comedor, tienes ese confort que esperas de las largas sobremesas.",
     price: 388,
     image:
       "https://f.fcdn.app/imgs/1277d2/www.kavehome.com.uy/kaveuy/2793/webp/catalogo/CC5212KY15_CC5212KY15_1/900x1125/silla-konna-gris-oscuro-patas-de-madera-maciza-de-fresno-silla-konna-gris-oscuro-patas-de-madera-maciza-de-fresno.jpg",
@@ -47,14 +49,15 @@ const products = [
     style: "Moderno, Nórdico",
     material: "Comedor, Escritorio",
     environment: "Comedor",
+    slug: "silla-konna-gris-oscuro",
     categoryId: 2,
   },
   {
-    title: "Silla Nina Madera Maciza - Eucalipto Y Cuerda Negro",
+    title: "Silla Nina Madera Maciza",
     imageenvironment:
       "https://f.fcdn.app/imgs/0a24e6/www.kavehome.com.uy/kaveuy/b545/webp/catalogo/CC2034J01_CC2034J01_2/1920-1200/silla-nina-madera-maciza-eucalipto-acabado-negro-mate-y-cuerda-negro-silla-nina-madera-maciza-eucalipto-acabado-negro-mate-y-cuerda-negro.jpg",
     description:
-      "La silla Nina es un diseño donde la estructura de madera maciza de eucalipto y el trenzado del asiento se han trabajado a mano. Además, los materiales están tratados para aprovechar al máximo sus cualidades. Conócelas y disfruta de una pieza única.",
+      "La silla Nina confeccionada de eucalipto y cuerda negra es un diseño donde la estructura de madera maciza de eucalipto y el trenzado del asiento se han trabajado a mano. Además, los materiales están tratados para aprovechar al máximo sus cualidades. Conócelas y disfruta de una pieza única.",
     price: 472,
     image:
       "https://f.fcdn.app/imgs/762e1b/www.kavehome.com.uy/kaveuy/a5fb/webp/catalogo/CC0555_S15_1/900x1125/silla-nina-madera-maciza-eucalipto-y-cuerda-negro.jpg",
@@ -64,10 +67,11 @@ const products = [
     style: "Moderno, Nórdico, Vintage",
     material: "Cuerda, Eucalipto, Madera maciza",
     environment: "Comedor, Escritorio, Exterior",
+    slug: "silla-nina-madera-maciza",
     categoryId: 2,
   },
   {
-    title: "Mesa Batilde Madera Maciza Caucho Con Chapa De Fresno 70 X 140 Cm",
+    title: "Mesa Batilde Madera Maciza",
     imageenvironment:
       "https://f.fcdn.app/imgs/ad5eee/www.kavehome.com.uy/kaveuy/2330/webp/catalogo/CC1347M87_CC1347M87_2/900x1125/mesa-batilde-madera-maciza-caucho-con-chapa-de-fresno-70-x-140-cm-mesa-batilde-madera-maciza-caucho-con-chapa-de-fresno-70-x-140-cm.jpg",
     description:
@@ -81,10 +85,11 @@ const products = [
     style: "Moderno, Nórdico",
     material: "Caucho, Madera maciza",
     environment: "Comedor",
+    slug: "mesa-batilde-madera-maciza",
     categoryId: 1,
   },
   {
-    title: "Mesa Redonda Maial Madera Maciza Teca Ø 90 Cm",
+    title: "Mesa Redonda Maial",
     imageenvironment:
       "https://f.fcdn.app/imgs/1e910e/www.kavehome.com.uy/kaveuy/4696/webp/catalogo/CC2125M47_CC2125M47_2/900x1125/mesa-redonda-maial-madera-maciza-teca-90-cm-mesa-redonda-maial-madera-maciza-teca-90-cm.jpg",
     description:
@@ -98,10 +103,11 @@ const products = [
     style: "Rústico",
     material: "Madera",
     environment: "Comedor",
+    slug: "mesa-redonda-maial",
     categoryId: 1,
   },
   {
-    title: "Sofá Narnia 3 Plazas - Marrón 192 Cm",
+    title: "Sofá Narnia 3 Plazas",
     imageenvironment:
       "https://f.fcdn.app/imgs/73c92e/www.kavehome.com.uy/kaveuy/bdde/webp/catalogo/S481_LD03_2/900x1125/sofa-narnia-3-plazas-marron-192-cm.jpg",
     description:
@@ -115,10 +121,11 @@ const products = [
     style: "Nórdico",
     material: "Acero, Madera maciza, Tapizado Tela Antimanchas",
     environment: "Estar, Living",
+    slug: "sofa-narnia-3-plazas",
     categoryId: 3,
   },
   {
-    title: "Sofá Gilma 3 Plazas Con Chaise Longue Derecho Gris Patas Acabado Natural 260 Cm",
+    title: "Sofá Gilma 3 Plazas",
     imageenvironment:
       "https://f.fcdn.app/imgs/0a6378/www.kavehome.com.uy/kaveuy/7a2e/webp/catalogo/S682MN14_S682MN14_2/1920-1200/sofa-gilma-3-plazas-con-chaise-longue-izquierdo-gris-patas-metal-negro-260-cm-sofa-gilma-3-plazas-con-chaise-longue-izquierdo-gris-patas-metal-negro-260-cm.jpg",
     description:
@@ -132,10 +139,11 @@ const products = [
     style: "Moderno, Nórdico",
     material: "Madera maciza, Eucalipto, Tapizado Tela",
     environment: "Estar, Living",
+    slug: "sofa-gilma-3-plazas",
     categoryId: 3,
   },
   {
-    title: "Butaca Glam - Mostaza",
+    title: "Butaca Glam",
     imageenvironment:
       "https://f.fcdn.app/imgs/5905d6/www.kavehome.com.uy/kaveuy/ffb9/webp/catalogo/S418VA_81_2/900x1125/butaca-glam-mostaza.jpg",
     description:
@@ -149,6 +157,7 @@ const products = [
     style: "Moderno, Nórdico",
     material: "Madera maciza, Tapizado Tela",
     environment: "Estar, Living",
+    slug: "butaca-glam",
     categoryId: 3,
   },
 ];

@@ -17,7 +17,7 @@ module.exports = (sequelize, Model, DataTypes) => {
         allowNull: false,
       },
       description: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(512),
       },
       image: {
         type: DataTypes.STRING(512),
@@ -45,6 +45,9 @@ module.exports = (sequelize, Model, DataTypes) => {
         type: DataTypes.STRING,
       },
       environment: {
+        type: DataTypes.STRING,
+      },
+      slug: {
         type: DataTypes.STRING,
       },
     },
