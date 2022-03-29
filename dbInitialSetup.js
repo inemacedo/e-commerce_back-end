@@ -9,5 +9,6 @@ module.exports = async () => {
   await require("./seeders/categorySeeder")();
   await require("./seeders/productSeeder")();
   await require("./seeders/userSeeder")();
+  await require("./seeders/adminSeeder")();
   console.log("[Database] ¡Los datos de prueba fueron insertados!");
 };

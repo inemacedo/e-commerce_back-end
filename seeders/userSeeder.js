@@ -28,5 +28,5 @@ const users = [
 
 module.exports = async () => {
   await User.bulkCreate(users);
-  console.log("Se corrió el seeder de Usuarios.");
+  console.log("[Database] Se corrió el seeder de Usuarios.");
 };

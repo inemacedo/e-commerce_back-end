@@ -12,7 +12,7 @@ app.use(cors());
 
 routes(app);
 
-// dbInitialSetup(); // Crea tablas e inserta datos de prueba.
+process.env.SEEDERS && dbInitialSetup(); // Crea tablas e inserta datos de prueba.
 
 app.listen(APP_PORT, () =>
   console.log(`\n[Express] Servidor corriendo en el puerto ${APP_PORT}!\n`),
