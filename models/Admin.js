@@ -1,3 +1,6 @@
+const bcryptjs = require("bcryptjs");
+const saltRounds = 8;
+
 module.exports = (sequelize, Model, DataTypes) => {
   class Admin extends Model {}
 
@@ -29,6 +32,18 @@ module.exports = (sequelize, Model, DataTypes) => {
       modelName: "admin",
     },
   );
+
+  Admin.beforeBulkCreate(async (admins, options) => {
+    for (const admin of admins) {
+      const hashedPassword = await bcryptjs.hash(admin.password, saltRounds);
+      admin.password = hashedPassword;
+    }
+  });
+
+  Admin.beforeCreate(async (admin, options) => {
+    const hashedPassword = await bcryptjs.hash(admin.password, saltRounds);
+    admin.password = hashedPassword;
+  });
 
   return Admin;
 };

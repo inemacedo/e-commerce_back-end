@@ -45,7 +45,7 @@ async function getOne(req, res) {
   try {
     const product = await Product.findOne({
       where: {
-        id: req.params.id,
+        slug: req.params.slug,
       },
     });
     if (product) return res.json(product);

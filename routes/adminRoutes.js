@@ -1,19 +1,20 @@
 const express = require("express");
+const adminController = require("../controllers/adminController");
 const adminRouter = express.Router();
 
 // adminRouter.use(
 //   checkJwt({ secret: process.env.JWT_SECRET, algorithms: ["HS256"] })
 // );
 
-// adminRouter.get("/admins", userController.getAll);
+adminRouter.get("/admins", adminController.index);
 
-// adminRouter.get("/admins/:id", userController.getOne);
+adminRouter.get("/admins/:id", adminController.show);
 
-// adminRouter.post("/admins", userController.store);
+adminRouter.post("/admins", adminController.store);
 
-// adminRouter.patch("/admins/:id", userController.update);
+adminRouter.patch("/admins/:id", adminController.update);
 
-// adminRouter.delete("/admins/:id", userController.destroy);
+adminRouter.delete("/admins/:id", adminController.destroy);
 
 
 module.exports = adminRouter;
