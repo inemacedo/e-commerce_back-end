@@ -1,4 +1,4 @@
-const Order = require("../models/Order");
+const Order = require("../models");
 
 // Display a listing of the resource.
 async function getAll(req, res) {
@@ -25,7 +25,20 @@ async function getOne(req, res) {
 }
 
 // Store a newly created resource in storage.
-async function store(req, res) {}
+async function store(req, res) {
+  try {
+    console.log(Order);
+    const order = await Order.create({
+      products: [
+        { id: 10, price: 890.99, quantity: 4 },
+        { id: 11, price: 990.99, quantity: 4 },
+      ],
+    });
+    if (order) return res.json(order);
+  } catch (error) {
+    return res.status(500).json({ msg: "Server error" });
+  }
+}
 
 // Update the specified resource in storage.
 async function update(req, res) {}
