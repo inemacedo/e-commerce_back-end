@@ -1,5 +1,15 @@
 const { Category } = require("../models");
 
+// Display a listing of the resource.
+async function getAll(req, res) {
+  try {
+    const categories = await Category.findAll();
+    if (categories) return res.json(categories);
+  } catch (error) {
+    return res.status(500).json({ msg: "Server error" });
+  }
+}
+
 // Display the specified resource.
 async function getOne(req, res) {
   try {
@@ -26,6 +36,9 @@ async function store(req, res) {
   }
 }
 
+// Update the specified resource in storage.
+async function update(req, res) {}
+
 // Remove the specified resource from storage.
 async function destroy(req, res) {
   try {
@@ -37,7 +50,9 @@ async function destroy(req, res) {
 }
 
 module.exports = {
+  getAll,
   getOne,
   store,
+  update,
   destroy,
 };
