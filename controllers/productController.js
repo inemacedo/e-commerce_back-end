@@ -1,5 +1,6 @@
 const { Product } = require("../models");
 const Category = require("../models/Category");
+const slugify = require("slugify");
 
 // Display a listing of the resource.
 async function getAll(req, res) {
@@ -69,6 +70,7 @@ async function store(req, res) {
       style: req.body.style,
       material: req.body.material,
       environment: req.body.environment,
+      slug: slugify(req.body.title),
     });
     if (product) return res.json({ msg: "Product added successfully!" });
   } catch (error) {
