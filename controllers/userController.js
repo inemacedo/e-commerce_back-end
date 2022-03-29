@@ -1,13 +1,29 @@
 const { User } = require("../models");
 const jwt = require("jsonwebtoken");
+
 // Display a listing of the resource.
-async function index(req, res) {}
+async function getAll(req, res) {
+  try {
+    const users = await User.findAll();
+    if (users) return res.json(users);
+  } catch (error) {
+    return res.status(500).json({ msg: "Server error" });
+  }
+}
 
 // Display the specified resource.
-async function getOne(req, res) {}
-
-// Show the form for creating a new resource
-async function create(req, res) {}
+async function getOne(req, res) {
+  try {
+    const user = await User.findOne({
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (user) return res.json(user);
+  } catch (error) {
+    return res.status(500).json({ msg: "Server error" });
+  }
+}
 
 //store new user
 async function store(req, res) {
@@ -30,24 +46,26 @@ async function store(req, res) {
   }
 }
 
-// Show the form for editing the specified resource.
-async function edit(req, res) {}
-
 // Update the specified resource in storage.
 async function update(req, res) {}
 
 // Remove the specified resource from storage.
-async function destroy(req, res) {}
+async function destroy(req, res) {
+  try {
+    const deletedUser = await User.destroy({ where: { id: req.params.id } });
+    if (deletedUser) return res.json(deletedUser);
+  } catch (error) {
+    return res.status(500).json({ msg: "Server error" });
+  }
+}
 
 // Otros handlers...
 // ...
 
 module.exports = {
-  index,
+  getAll,
   getOne,
-  create,
   store,
-  edit,
   update,
   destroy,
 };
