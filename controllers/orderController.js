@@ -1,17 +1,31 @@
+const Order = require("../models/Order");
+
 // Display a listing of the resource.
-async function index(req, res) {}
+async function getAll(req, res) {
+  try {
+    const orders = await Order.findAll();
+    if (orders) return res.json(orders);
+  } catch (error) {
+    return res.status(500).json({ msg: "Server error" });
+  }
+}
 
 // Display the specified resource.
-async function show(req, res) {}
-
-// Show the form for creating a new resource
-async function create(req, res) {}
+async function getOne(req, res) {
+  try {
+    const order = await Order.findOne({
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (order) return res.json(order);
+  } catch (error) {
+    return res.status(500).json({ msg: "Server error" });
+  }
+}
 
 // Store a newly created resource in storage.
 async function store(req, res) {}
-
-// Show the form for editing the specified resource.
-async function edit(req, res) {}
 
 // Update the specified resource in storage.
 async function update(req, res) {}
@@ -23,11 +37,9 @@ async function destroy(req, res) {}
 // ...
 
 module.exports = {
-  index,
-  show,
-  create,
+  getAll,
+  getOne,
   store,
-  edit,
   update,
   destroy,
 };
