@@ -1,5 +1,5 @@
 const { Product } = require("../models");
-const Category = require("../models/Category");
+const { Category } = require("../models/Category");
 const slugify = require("slugify");
 
 // Display a listing of the resource.
@@ -17,6 +17,7 @@ async function getAll(req, res) {
         });
 
     if (products) return res.json(products);
+    console.log(products);
   } catch (error) {
     return res.status(500).json({ msg: "Server error" });
   }
