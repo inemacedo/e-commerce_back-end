@@ -1,4 +1,4 @@
-const Order = require("../models");
+const { Order } = require("../models");
 
 // Display a listing of the resource.
 async function getAll(req, res) {
@@ -29,13 +29,15 @@ async function store(req, res) {
   try {
     console.log(Order);
     const order = await Order.create({
-      products: [
-        { id: 10, price: 890.99, quantity: 4 },
-        { id: 11, price: 990.99, quantity: 4 },
-      ],
+      userId: req.user.id,
+      products: req.body.products,
+      status: "PAGADO",
+      address: req.body.address,
+      paymentMethod: req.body.paymentMethod,
     });
     if (order) return res.json(order);
   } catch (error) {
+    console.log(error);
     return res.status(500).json({ msg: "Server error" });
   }
 }

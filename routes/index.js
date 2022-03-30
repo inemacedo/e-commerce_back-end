@@ -8,10 +8,10 @@ const categoryRoutes = require("./categoryRoutes");
 const orderRoutes = require("./orderRoutes");
 
 module.exports = (app) => {
-  app.use(adminRoutes);
   app.use(productRoutes);
   app.use(authRoutes);
   app.use(userRoutes);
   app.use(categoryRoutes);
+  app.use(adminRoutes);
   app.use(orderRoutes);
 };

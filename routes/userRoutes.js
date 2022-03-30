@@ -9,7 +9,11 @@ userRoutes.get(
   userController.getAll,
 );
 
-userRoutes.get("/users/:id", userController.getOne);
+userRoutes.get(
+  "/users/:id",
+  checkJwt({ secret: process.env.JWT_SECRET, algorithms: ["HS256"] }),
+  userController.getOne,
+);
 
 userRoutes.post("/users", userController.store);
 

@@ -9,7 +9,11 @@ productRoutes.get("/products/category", productController.getByCategory);
 
 productRoutes.get("/products/:slug", productController.getOne);
 
-productRoutes.post("/products", productController.store);
+productRoutes.post(
+  "/products",
+  checkJwt({ secret: process.env.JWT_SECRET, algorithms: ["HS256"] }),
+  productController.store,
+);
 
 productRoutes.patch(
   "/products/:id",
