@@ -25,6 +25,9 @@ module.exports = (sequelize, Model, DataTypes) => {
       imageenvironment: {
         type: DataTypes.STRING(512),
       },
+      imagemeasures: {
+        type: DataTypes.STRING(512),
+      },
       price: {
         type: DataTypes.DECIMAL,
         allowNull: false,
