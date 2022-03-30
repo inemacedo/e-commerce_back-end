@@ -1,34 +1,38 @@
 const { Product } = require("../models");
-const { Category } = require("../models/Category");
+const { Category } = require("../models/");
 const slugify = require("slugify");
 
 // Display a listing of the resource.
 async function getAll(req, res) {
-  try {
-    const products = req.query.featured
-      ? await Product.findAll({
-          where: {
-            featured: true,
-          },
-          limit: 3,
-        })
-      : await Product.findAll({
-          limit: 10,
-        });
-
+  if (req.query.category) {
+    const products = await getByCategory(req.query.category);
     if (products) return res.json(products);
-    console.log(products);
-  } catch (error) {
-    return res.status(500).json({ msg: "Server error" });
+  } else {
+    try {
+      const products = req.query.featured
+        ? await Product.findAll({
+            where: {
+              featured: true,
+            },
+            limit: 3,
+          })
+        : await Product.findAll({
+            limit: 10,
+          });
+      if (products) return res.json(products);
+      console.log(products);
+    } catch (error) {
+      return res.status(500).json({ msg: "Server error" });
+    }
   }
 }
 
 // Display a listing of the resource by category
-async function getByCategory(req, res) {
+async function getByCategory(categoryName, res) {
   try {
     const category = await Category.findOne({
       where: {
-        name: req.params.name,
+        name: categoryName,
       },
     });
     const productsByCategory = await Product.findAll({
@@ -36,7 +40,7 @@ async function getByCategory(req, res) {
         categoryId: category.id,
       },
     });
-    if (productsByCategory) return res.json(productsByCategory);
+    if (productsByCategory) return productsByCategory;
   } catch (error) {
     return res.status(500).json({ msg: "Server error" });
   }

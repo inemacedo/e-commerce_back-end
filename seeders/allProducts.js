@@ -1,3 +1,9 @@
+const categoryName = {
+  mesas: 1,
+  sillas: 2,
+  sillones: 3,
+};
+
 const products = [
   {
     title: "Mesa De Centro",
@@ -16,7 +22,7 @@ const products = [
     material: "Acacia, Hierro, Madera maciza",
     environment: "Living",
     slug: "mesa-de-centro",
-    categoryId: 1,
+    categoryId: categoryName.mesas,
   },
   {
     title: "Silla Doriane De Madera Maciza",
@@ -36,7 +42,7 @@ const products = [
     material: "Espuma, Madera, Ratán, Roble, Tela",
     environment: "Comedor",
     slug: "silla-doriane-de-madera-maciza",
-    categoryId: 2,
+    categoryId: categoryName.sillas,
   },
   {
     title: "Silla Konna Gris Oscuro ",
@@ -56,7 +62,7 @@ const products = [
     material: "Comedor, Escritorio",
     environment: "Comedor",
     slug: "silla-konna-gris-oscuro",
-    categoryId: 2,
+    categoryId: categoryName.sillas,
   },
   {
     title: "Silla Nina Madera Maciza",
@@ -76,7 +82,7 @@ const products = [
     material: "Cuerda, Eucalipto, Madera maciza",
     environment: "Comedor, Escritorio, Exterior",
     slug: "silla-nina-madera-maciza",
-    categoryId: 2,
+    categoryId: categoryName.sillas,
   },
   {
     title: "Mesa Batilde Madera Maciza",
@@ -96,7 +102,7 @@ const products = [
     material: "Caucho, Madera maciza",
     environment: "Comedor",
     slug: "mesa-batilde-madera-maciza",
-    categoryId: 1,
+    categoryId: categoryName.mesas,
   },
   {
     title: "Mesa Redonda Maial",
@@ -116,7 +122,7 @@ const products = [
     material: "Madera",
     environment: "Comedor",
     slug: "mesa-redonda-maial",
-    categoryId: 1,
+    categoryId: categoryName.mesas,
   },
   {
     title: "Sofá Narnia 3 Plazas",
@@ -136,7 +142,7 @@ const products = [
     material: "Acero, Madera maciza, Tapizado Tela Antimanchas",
     environment: "Estar, Living",
     slug: "sofa-narnia-3-plazas",
-    categoryId: 3,
+    categoryId: categoryName.sillones,
   },
   {
     title: "Sofá Gilma 3 Plazas",
@@ -156,7 +162,7 @@ const products = [
     material: "Madera maciza, Eucalipto, Tapizado Tela",
     environment: "Estar, Living",
     slug: "sofa-gilma-3-plazas",
-    categoryId: 3,
+    categoryId: categoryName.sillones,
   },
   {
     title: "Butaca Glam",
@@ -176,7 +182,7 @@ const products = [
     material: "Madera maciza, Tapizado Tela",
     environment: "Estar, Living",
     slug: "butaca-glam",
-    categoryId: 3,
+    categoryId: categoryName.sillones,
   },
   {
     title: "Mesa Extensible Isbel",
@@ -196,7 +202,7 @@ const products = [
     material: "	Madera maciza, Roble",
     environment: "Comedor, Estar",
     slug: "mesa-extensible-isbel",
-    categoryId: 1,
+    categoryId: categoryName.mesas,
   },
   {
     title: "Set Akemi De 2 Mesas De Centro",
@@ -216,7 +222,7 @@ const products = [
     material: "Acero, Cristal",
     environment: "Living",
     slug: "set-akemi-de-2-mesas-de-centro",
-    categoryId: 1,
+    categoryId: categoryName.mesas,
   },
   {
     title: "Mesa Argo Roble Blanqueado",
@@ -236,7 +242,7 @@ const products = [
     material: "	Acero, Madera, Roble",
     environment: "Comedor",
     slug: "mesa-argo-roble-blanqueado",
-    categoryId: 1,
+    categoryId: categoryName.mesas,
   },
   {
     title: "Sofá Noa 3 Plazas",
@@ -256,7 +262,7 @@ const products = [
     material: "Espuma, Madera, Pino, Tela",
     environment: "Escritorio, Living",
     slug: "sofa-noa-3-plazas",
-    categoryId: 3,
+    categoryId: categoryName.sillones,
   },
   {
     title: "Sofá Galene De 3 Plazas",
@@ -276,7 +282,7 @@ const products = [
     material: "Poliester",
     environment: "Living",
     slug: "sofa-galene-de-3-plazas",
-    categoryId: 3,
+    categoryId: categoryName.sillones,
   },
   {
     title: "Sofá Obo 3 Plazas",
@@ -296,7 +302,7 @@ const products = [
     material: "Tapizado/a, Tela",
     environment: "Estar, Living",
     slug: "sofa-obo-3-plazas",
-    categoryId: 3,
+    categoryId: categoryName.sillones,
   },
   {
     title: "Silla Croft - Gris Claro",
@@ -316,7 +322,7 @@ const products = [
     material: "Antimanchas, Madera maciza, Tela",
     environment: "Comedor, Escritorio",
     slug: "silla-croft-gris-claro",
-    categoryId: 2,
+    categoryId: categoryName.sillas,
   },
   {
     title: "Silla Nayme - Beige",
@@ -336,7 +342,7 @@ const products = [
     material: "Caucho, Madera maciza",
     environment: "Comedor",
     slug: "silla-nayme-beige",
-    categoryId: 2,
+    categoryId: categoryName.sillas,
   },
   {
     title: "Silla Trise",
@@ -356,7 +362,7 @@ const products = [
     material: "Caucho, Madera maciza",
     environment: "Comedor, Escritorio",
     slug: "silla-trise",
-    categoryId: 2,
+    categoryId: categoryName.sillas,
   },
 ];
 
