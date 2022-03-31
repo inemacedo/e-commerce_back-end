@@ -4,4 +4,6 @@ const authRoutes = express.Router();
 
 authRoutes.post("/tokens", authController.newToken);
 
+authRoutes.post("/tokens/admins", authController.newAdminToken);
+
 module.exports = authRoutes;

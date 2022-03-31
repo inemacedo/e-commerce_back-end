@@ -2,7 +2,12 @@ const bcryptjs = require("bcryptjs");
 const saltRounds = 8;
 
 module.exports = (sequelize, Model, DataTypes) => {
-  class Admin extends Model {}
+  class Admin extends Model {
+    async checkAdminPassword(password) {
+      const match = await bcryptjs.compare(password, this.password);
+      return match;
+    }
+  }
 
   Admin.init(
     {
@@ -24,6 +29,9 @@ module.exports = (sequelize, Model, DataTypes) => {
         allowNull: false,
       },
       password: {
+        type: DataTypes.STRING,
+      },
+      token: {
         type: DataTypes.STRING,
       },
     },

@@ -12,6 +12,6 @@ module.exports = (app) => {
   app.use(authRoutes);
   app.use(userRoutes);
   app.use(categoryRoutes);
-  app.use(adminRoutes);
   app.use(orderRoutes);
+  app.use(adminRoutes);
 };

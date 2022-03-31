@@ -5,7 +5,9 @@ const { Admin } = require("../models");
 // Display a listing of the resource.
 async function index(req, res) {
   try {
+
     const admins = await Admin.findAll();
+    // console.log(admins);
     return res.json( admins );
   } catch (error) {
     return res.status(500).json({ status: 500, msg: "Server error" });
@@ -15,14 +17,16 @@ async function index(req, res) {
 // Display the specified resource.
 async function show(req, res) {
   try {
-    const admin = await Admin.findOne({
+
+    const result = await Admin.findOne({
       where: {
         id: req.params.id
       }
     });
-    return res.json( admin );
+    return res.json( result );
   } catch (error) {
-    return res.status(500).json();
+    console.log(error);
+    return res.status(500).json({ status: 500, msg: "Server error" });
   }
 }
 
