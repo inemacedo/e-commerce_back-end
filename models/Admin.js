@@ -30,6 +30,12 @@ module.exports = (sequelize, Model, DataTypes) => {
     {
       sequelize,
       modelName: "admin",
+      hooks: {
+        beforeUpdate: async (admin, options) => {
+          const hashedPassword = await bcryptjs.hash(admin.password, saltRounds);
+          admin.password = hashedPassword;
+        }
+      }
     },
   );
 
