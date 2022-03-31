@@ -9,6 +9,7 @@ async function getAll(req, res) {
     if (products) return res.json(products);
   } else {
     try {
+      const max = req.query.limit ? Number(req.query.limit) : 10;
       const products = req.query.featured
         ? await Product.findAll({
             where: {
@@ -17,7 +18,7 @@ async function getAll(req, res) {
             limit: 3,
           })
         : await Product.findAll({
-            limit: 10,
+            limit: max,
           });
       if (products) return res.json(products);
       console.log(products);
@@ -63,6 +64,7 @@ async function getOne(req, res) {
 // Store a newly created resource in storage.
 async function store(req, res) {
   try {
+    console.log(req.body);
     const product = await Product.create({
       title: req.body.title,
       description: req.body.description,
@@ -75,6 +77,7 @@ async function store(req, res) {
       style: req.body.style,
       material: req.body.material,
       environment: req.body.environment,
+      imagemeasures: req.body.imagemeasures,
       slug: slugify(req.body.title),
     });
     if (product) return res.json({ msg: "Product added successfully!" });
