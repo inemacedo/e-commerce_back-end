@@ -7,6 +7,7 @@ module.exports = (sequelize, Model, DataTypes) => {
         type: DataTypes.BIGINT.UNSIGNED,
         primaryKey: true,
         autoIncrement: true,
+        allowNull: false,
       },
       status: {
         type: DataTypes.ENUM,
@@ -15,9 +16,11 @@ module.exports = (sequelize, Model, DataTypes) => {
       },
       address: {
         type: DataTypes.STRING,
+        allowNull: false,
       },
       products: {
         type: DataTypes.JSON,
+        allowNull: false,
       },
     },
     {

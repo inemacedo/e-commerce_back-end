@@ -3,10 +3,19 @@ const { Order } = require("../models");
 // Display a listing of the resource.
 async function getAll(req, res) {
   try {
-    const orders = await Order.findAll();
-    if (orders) return res.json(orders);
+    if(req.user.role==="admin"){
+      return res.json( await Order.findAll() );
+
+    }else if(req.user.role==="user"){
+      const orders = await Order.findAll({
+        where: {
+          userId: req.user.userID
+        }
+      });
+      return res.json(orders);
+    }
   } catch (error) {
-    return res.status(500).json({ msg: "Server error" });
+    return res.status(500).json([{ status: 500, msg: "Server error" }]);
   }
 }
 
@@ -27,9 +36,9 @@ async function getOne(req, res) {
 // Store a newly created resource in storage.
 async function store(req, res) {
   try {
-    console.log(Order);
+    console.log(req.user);
     const order = await Order.create({
-      userId: req.user.id,
+      userId: req.user.userID,
       products: req.body.products,
       status: "PAGADO",
       address: req.body.address,
@@ -38,7 +47,7 @@ async function store(req, res) {
     if (order) return res.json(order);
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ msg: "Server error" });
+    return res.status(500).json({ status: 500, msg: "Server error" });
   }
 }
 
@@ -46,7 +55,21 @@ async function store(req, res) {
 async function update(req, res) {}
 
 // Remove the specified resource from storage.
-async function destroy(req, res) {}
+async function destroy(req, res) {
+  try {
+    const deleted = await Order.destroy({
+      where: {
+        id: req.params.id
+      }
+    });
+    console.log(deleted);
+    if(deleted===1) return res.json({ status: 200, msg: "Ok" });
+    return res.json({ status: 200, msg: "Resource not found" });
+    
+  } catch (error) {
+    return res.status(500).json({ status: 500, msg: "Server error" });
+  }
+}
 
 // Otros handlers...
 // ...

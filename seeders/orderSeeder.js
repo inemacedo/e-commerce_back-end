@@ -1,4 +1,5 @@
 const { Order } = require("../models");
+const products = require("./allProducts");
 
 module.exports = async () => {
   const orders = [
@@ -6,8 +7,9 @@ module.exports = async () => {
       status: "PAGADO",
       address: "montevideo",
       products: [
-        { id: 10, price: 890.99, quantity: 4 },
-        { id: 11, price: 990.99, quantity: 4 },
+        products[3],
+        products[5],
+        products[7],
       ],
       userId: 1,
     },

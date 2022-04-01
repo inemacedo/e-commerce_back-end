@@ -1,6 +1,6 @@
 
 const { Admin } = require("../models");
-
+// const formidable = require("formidable");
 
 // Display a listing of the resource.
 async function index(req, res) {
@@ -32,6 +32,7 @@ async function show(req, res) {
 
 // Store a newly created resource in storage.
 async function store(req, res) {
+  // Utilizar formidable para guardar las imagenes
   try {
     const created = await Admin.create( {...req.body} );
     return res.json( { status: 200, msg: "Ok" } );

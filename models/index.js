@@ -21,8 +21,6 @@ const Product = require("./Product")(sequelize, Model, DataTypes);
 // entre los mismos...
 User.hasMany(Order);
 Order.belongsTo(User);
-// Order.hasMany(Product);
-Product.hasMany(Order);
 Product.belongsTo(Category);
 Category.hasMany(Product);
 
