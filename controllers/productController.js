@@ -79,6 +79,7 @@ async function store(req, res) {
       environment: req.body.environment,
       imagemeasures: req.body.imagemeasures,
       slug: slugify(req.body.title),
+      categoryId: req.body.categoryId,
     });
     if (product) return res.json({ msg: "Product added successfully!" });
   } catch (error) {
