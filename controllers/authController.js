@@ -38,11 +38,6 @@ async function newAdminToken(req, res) {
       };
       const newJwt = jwt.sign(newPayload, process.env.JWT_SECRET);
 
-      // admin.set({
-      //   token: `Bearer ${newJwt}`
-      // });
-      // await admin.save();
-
       return res.json({ id: admin.id, email: admin.email, token: newJwt });
     }
     res.status(400).json({ status: 400, msg: "Wrong credentials." });
