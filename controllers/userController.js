@@ -47,7 +47,22 @@ async function store(req, res) {
 }
 
 // Update the specified resource in storage.
-async function update(req, res) {}
+async function update(req, res) {
+  try {
+    const user = await User.findOne({
+      where: {
+        id: req.user.userID
+      }
+    });
+    delete req.body.email;
+    delete req.body.password;
+    await user.update(req.body);
+    return res.json(user);
+    
+  } catch (error) {
+    return res.status(500).json({ msg: "Server error" });
+  }
+}
 
 // Remove the specified resource from storage.
 async function destroy(req, res) {
