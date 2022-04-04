@@ -62,6 +62,9 @@ async function update(req, res) {
 // Remove the specified resource from storage.
 async function destroy(req, res) {
   try {
+    if( req.user.adminID === req.params.id )
+    return res.status(400).json({ status: 400, msg: "Unauthorized" });
+
     const deleted = await Admin.destroy({
       where: {
         id: req.params.id
