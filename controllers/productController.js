@@ -88,7 +88,20 @@ async function store(req, res) {
 }
 
 // Update the specified resource in storage.
-async function update(req, res) {}
+async function update(req, res) {
+  try {
+    const product = Product.findOne({
+      where: {
+        id: req.params.id
+      }
+    });
+    delete req.body.id;
+    product.update(req.body);
+    return res.json({ status: 200, msg: "Ok" });
+  } catch (error) {
+    return res.status(500).json({ status: 500, msg: "Server error" });  
+  }
+}
 
 // Remove the specified resource from storage.
 async function destroy(req, res) {
