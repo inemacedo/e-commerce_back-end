@@ -34,12 +34,17 @@ async function store(req, res) {
       email: req.body.email,
       password: req.body.password,
       phone: req.body.phone,
-      adress: req.body.adress,
+      address: req.body.address,
     });
     const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
       expiresIn: 86400, // 24 hours
     });
-    res.json({ message: "User was registered successfully!", accessToken: token });
+    res.json({
+      message: "User was registered successfully!",
+      id: user.id,
+      email: user.email,
+      token: token,
+    });
     return;
   } catch (error) {
     res.status(400);
