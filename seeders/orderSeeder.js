@@ -6,11 +6,9 @@ module.exports = async () => {
     {
       status: "PAGADO",
       address: "montevideo",
-      products: [
-        products[3],
-        products[5],
-        products[7],
-      ],
+      products: [products[3], products[5], products[7]],
+      paymentMethod: "Tarjeta VISA",
+      totalPrice: 3752,
       userId: 1,
     },
   ];

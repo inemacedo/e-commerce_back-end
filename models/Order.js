@@ -22,6 +22,14 @@ module.exports = (sequelize, Model, DataTypes) => {
         type: DataTypes.JSON,
         allowNull: false,
       },
+      paymentMethod: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      totalPrice: {
+        type: DataTypes.BIGINT,
+        allowNull: false,
+      },
     },
     {
       sequelize,

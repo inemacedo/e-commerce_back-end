@@ -3,14 +3,13 @@ const { Order } = require("../models");
 // Display a listing of the resource.
 async function getAll(req, res) {
   try {
-    if(req.user.role==="admin"){
-      return res.json( await Order.findAll() );
-
-    }else if(req.user.role==="user"){
+    if (req.user.role === "admin") {
+      return res.json(await Order.findAll());
+    } else if (req.user.role === "user") {
       const orders = await Order.findAll({
         where: {
-          userId: req.user.userID
-        }
+          userId: req.user.userID,
+        },
       });
       return res.json(orders);
     }
@@ -43,6 +42,7 @@ async function store(req, res) {
       status: "PAGADO",
       address: req.body.address,
       paymentMethod: req.body.paymentMethod,
+      totalPrice: req.body.totalPrice,
     });
     if (order) return res.json(order);
   } catch (error) {
@@ -56,14 +56,14 @@ async function update(req, res) {
   try {
     const order = Order.findOne({
       where: {
-        id: req.params.id
-      }
+        id: req.params.id,
+      },
     });
     delete req.body.id;
     order.update(req.body);
     return res.json({ status: 200, msg: "Ok" });
   } catch (error) {
-    return res.status(500).json({ status: 500, msg: "Server error" });  
+    return res.status(500).json({ status: 500, msg: "Server error" });
   }
 }
 
@@ -72,13 +72,12 @@ async function destroy(req, res) {
   try {
     const deleted = await Order.destroy({
       where: {
-        id: req.params.id
-      }
+        id: req.params.id,
+      },
     });
     console.log(deleted);
-    if(deleted===1) return res.json({ status: 200, msg: "Ok" });
+    if (deleted === 1) return res.json({ status: 200, msg: "Ok" });
     return res.json({ status: 200, msg: "Resource not found" });
-    
   } catch (error) {
     return res.status(500).json({ status: 500, msg: "Server error" });
   }
