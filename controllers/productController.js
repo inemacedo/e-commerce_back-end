@@ -8,35 +8,8 @@ const fs = require("fs");
 const path = require("path");
 const formidable = require("formidable");
 
-// Display a listing of the resource.
-async function getAll(req, res) {
-  return res.json({msg:"HOLA ANDY"});
-  if (req.query.category) {
-    const products = await getByCategory(req.query.category);
-    if (products) return res.json(products);
-  } else {
-    try {
-      const max = req.query.limit ? Number(req.query.limit) : 10;
-      const products = req.query.featured
-        ? await Product.findAll({
-            where: {
-              featured: true,
-            },
-            limit: 3,
-          })
-        : await Product.findAll({
-            limit: max,
-          });
-      if (products) return res.json(products);
-      console.log(products);
-    } catch (error) {
-      return res.status(500).json({ msg: "Server error" });
-    }
-  }
-}
-
 // Display a listing of the resource by category
-async function getByCategory(categoryName, res) {
+async function getByCategory(categoryName) {
   try {
     const category = await Category.findOne({
       where: {
@@ -48,7 +21,41 @@ async function getByCategory(categoryName, res) {
         categoryId: category.id,
       },
     });
-    if (productsByCategory) return productsByCategory;
+    return productsByCategory;
+  } catch (error) {
+    return [{ msg: "Server error" }];
+  }
+}
+
+// Display a listing of the resource.
+async function getAll(req, res) {
+  // return res.json({msg:"HOLA ANDY"});
+  try {
+    if (req.query.category) {
+      const products = await getByCategory(req.query.category);
+      return res.json(products);
+    } else {
+
+      const max = req.query.limit ? Number(req.query.limit) : 10;
+
+      if (req.query.featured) {
+        const products = await Product.findAll({
+          where: {
+            featured: true,
+          },
+          limit: 3,
+        });
+        console.log(products);
+        return res.json(products);
+
+      } else {
+        const products = await Product.findAll({
+          limit: max,
+        });
+        console.log(products);
+        return res.json(products);
+      }
+    }
   } catch (error) {
     return res.status(500).json({ msg: "Server error" });
   }
@@ -123,7 +130,7 @@ async function store(req, res) {
 // Update the specified resource in storage.
 async function update(req, res) {
   try {
-    const product = await Product.findByPk( req.params.id );
+    const product = await Product.findByPk(req.params.id);
     delete req.body.id;
     product.update(req.body);
     return res.json({ status: 200, msg: "Ok" });
