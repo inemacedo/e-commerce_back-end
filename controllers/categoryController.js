@@ -27,6 +27,14 @@ async function getOne(req, res) {
 // Store a newly created resource in storage.
 async function store(req, res) {
   try {
+    const verifyExistingCategory = await Category.findOne({
+      where: {
+        name: req.body.name
+      }
+    });
+    if( verifyExistingCategory && verifyExistingCategory.name === req.body.name ){
+      return res.status(400).json();
+    }
     const newCategory = await Category.create({
       name: req.body.name,
     });

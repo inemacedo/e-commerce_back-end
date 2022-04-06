@@ -122,11 +122,7 @@ async function store(req, res) {
 // Update the specified resource in storage.
 async function update(req, res) {
   try {
-    const product = Product.findOne({
-      where: {
-        id: req.params.id,
-      },
-    });
+    const product = await Product.findByPk( req.params.id );
     delete req.body.id;
     product.update(req.body);
     return res.json({ status: 200, msg: "Ok" });
