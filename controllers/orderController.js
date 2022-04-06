@@ -1,10 +1,12 @@
 const { Order } = require("../models");
+const User = require("../models/User");
 
 // Display a listing of the resource.
 async function getAll(req, res) {
   try {
     if (req.user.role === "admin") {
-      return res.json(await Order.findAll());
+      const orders = await Order.findAll({ include: { all: true, nested: true } });
+      return res.json(orders);
     } else if (req.user.role === "user") {
       const orders = await Order.findAll({
         where: {
@@ -60,7 +62,7 @@ async function update(req, res) {
       },
     });
     delete req.body.id;
-    order.update(req.body);
+    order.update();
     return res.json({ status: 200, msg: "Ok" });
   } catch (error) {
     return res.status(500).json({ status: 500, msg: "Server error" });
