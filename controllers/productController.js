@@ -10,6 +10,7 @@ const formidable = require("formidable");
 
 // Display a listing of the resource.
 async function getAll(req, res) {
+  return res.json({msg:"HOLA ANDY"});
   if (req.query.category) {
     const products = await getByCategory(req.query.category);
     if (products) return res.json(products);
