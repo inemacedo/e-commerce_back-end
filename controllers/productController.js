@@ -2,12 +2,40 @@ const { Product } = require("../models");
 const { Category } = require("../models/");
 const slugify = require("slugify");
 const { createClient } = require("@supabase/supabase-js");
+const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
+
 const fs = require("fs");
 const path = require("path");
 const formidable = require("formidable");
 
+// Display a listing of the resource.
+async function getAll(req, res) {
+  if (req.query.category) {
+    const products = await getByCategory(req.query.category);
+    if (products) return res.json(products);
+  } else {
+    try {
+      const max = req.query.limit ? Number(req.query.limit) : 10;
+      const products = req.query.featured
+        ? await Product.findAll({
+            where: {
+              featured: true,
+            },
+            limit: 3,
+          })
+        : await Product.findAll({
+            limit: max,
+          });
+      if (products) return res.json(products);
+      console.log(products);
+    } catch (error) {
+      return res.status(500).json({ msg: "Server error" });
+    }
+  }
+}
+
 // Display a listing of the resource by category
-async function getByCategory(categoryName) {
+async function getByCategory(categoryName, res) {
   try {
     const category = await Category.findOne({
       where: {
@@ -121,7 +149,11 @@ async function store(req, res) {
 //Update the specified resource in storage.
 async function update(req, res) {
   try {
-    const product = await Product.findByPk(req.params.id);
+    const product = Product.findOne({
+      where: {
+        id: req.params.id,
+      },
+    });
     delete req.body.id;
     product.update(req.body);
     return res.json({ status: 200, msg: "Ok" });

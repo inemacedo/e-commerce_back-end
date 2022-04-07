@@ -1,11 +1,10 @@
-const { Order, User } = require("../models");
+const { Order, Product, User } = require("../models");
 
 // Display a listing of the resource.
 async function getAll(req, res) {
   try {
     if (req.user.role === "admin") {
-      const orders = await Order.findAll({ include: User });
-      return res.json(orders);
+      return res.json(await Order.findAll());
     } else if (req.user.role === "user") {
       const orders = await Order.findAll({
         where: {
@@ -14,10 +13,7 @@ async function getAll(req, res) {
       });
       return res.json(orders);
     }
-    return res.status(500).json([{ status: 500, msg: "No se encuentra el recurso" }]);
-
   } catch (error) {
-    console.log(error);
     return res.status(500).json([{ status: 500, msg: "Server error" }]);
   }
 }
@@ -38,16 +34,27 @@ async function getOne(req, res) {
 
 // Store a newly created resource in storage.
 async function store(req, res) {
+  // TODO: el precio total deberia venir del back....
+  // const calculateTotal = async (products) => {
+  //   return products.reduce(async (acc, prod) => {
+  //     const productPrice = (await Product.findByPk(prod.id)).price;
+  //     return acc + productPrice * prod.quantity;
+  //   }, 0);
+  // };
+
   try {
-    console.log(req.user);
+    const user = await User.findByPk(req.user.userID);
+    // const totalPrice = await calculateTotal(req.body.cart);
+    // console.log(user);
     const order = await Order.create({
       userId: req.user.userID,
-      products: req.body.products,
+      products: req.body.cart,
       status: "PAGADO",
-      address: req.body.address,
-      paymentMethod: req.body.paymentMethod,
-      totalPrice: req.body.totalPrice,
+      address: user.address,
+      paymentMethod: "Tarjeta VISA",
+      totalPrice: req.body.total,
     });
+    // console.log(totalPrice);
     if (order) return res.json(order);
   } catch (error) {
     console.log(error);
@@ -55,21 +62,19 @@ async function store(req, res) {
   }
 }
 
+// Update the specified resource in storage.
 async function update(req, res) {
   try {
-    console.log(req.body);
-    const order = await Order.findOne({
+    const order = Order.findOne({
       where: {
         id: req.params.id,
       },
     });
-    //delete req.body.id;
-    await order.update({
-      ...req.body,
-    });
-    res.json({ status: 200, msg: "Ok" });
+    delete req.body.id;
+    order.update(req.body);
+    return res.json({ status: 200, msg: "Ok" });
   } catch (error) {
-    res.status(500).json({ status: 500, msg: "Server error" });
+    return res.status(500).json({ status: 500, msg: "Server error" });
   }
 }
 
