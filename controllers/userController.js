@@ -41,8 +41,7 @@ async function store(req, res) {
     });
     res.json({
       message: "User was registered successfully!",
-      id: user.id,
-      email: user.email,
+      user,
       token: token,
     });
     return;
@@ -56,14 +55,13 @@ async function update(req, res) {
   try {
     const user = await User.findOne({
       where: {
-        id: req.user.userID
-      }
+        id: req.user.userID,
+      },
     });
     delete req.body.email;
     delete req.body.password;
     await user.update(req.body);
     return res.json(user);
-    
   } catch (error) {
     return res.status(500).json({ msg: "Server error" });
   }
