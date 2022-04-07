@@ -10,28 +10,33 @@ const formidable = require("formidable");
 
 // Display a listing of the resource.
 async function getAll(req, res) {
-  if (req.query.category) {
-    const products = await getByCategory(req.query.category);
-    if (products) return res.json(products);
-  } else {
-    try {
+  console.log("HOLAAAA");
+  return res.json({ url: process.env.SUPABASE_BUCKET_URL });
+
+  try {
+    if (req.query.category) {
+      const products = await getByCategory(req.query.category);
+      if (products) return res.json(products);
+    } else {
       const max = req.query.limit ? Number(req.query.limit) : 10;
       const products = req.query.featured
         ? await Product.findAll({
-            where: {
-              featured: true,
-            },
-            limit: 3,
-          })
+          where: {
+            featured: true,
+          },
+          limit: 3,
+        })
         : await Product.findAll({
-            limit: max,
-          });
-      if (products) return res.json(products);
+          limit: max,
+        });
+      products.map(product => product.imgBaseUrl = process.env.SUPABASE_BUCKET_URL);
       console.log(products);
-    } catch (error) {
-      return res.status(500).json({ msg: "Server error" });
+      if (products) return res.json(products);
     }
+  } catch (error) {
+    return res.status(500).json({ msg: "Server error" });
   }
+
 }
 
 // Display a listing of the resource by category
