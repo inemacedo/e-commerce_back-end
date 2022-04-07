@@ -67,6 +67,7 @@ async function getOne(req, res) {
         slug: req.params.slug,
       },
     });
+    product.dataValues.imgBaseUrl = process.env.SUPABASE_BUCKET_URL;
     if (product) return res.json(product);
   } catch (error) {
     return res.status(500).json({ msg: "Server error" });

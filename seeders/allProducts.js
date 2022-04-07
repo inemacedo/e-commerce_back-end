@@ -7,7 +7,7 @@ const categoryName = {
 const products = [
   {
     title: "Mesa De Centro",
-    imageenvironment: "mesa-de-centro-imageenvionment.png",
+    imageenvironment: "mesa-de-centro-imageenvironment.png",
     description: "Mesa De Centro Alaia De Madera Maciza De Acacia Con Acabado Natural 115cm x 65cm",
     price: 756,
     image: "mesa-de-centro-image.png",
@@ -79,7 +79,7 @@ const products = [
       "Todo lo bueno ocurre alrededor de una mesa. Así que, si quieres escogerla bien, apuesta por aquella que más hable de ti. La mesa Batilde es exclusiva como tú, al ser de madera maciza de caucho, con tonalidades y vetas únicas.",
     price: 496,
     image: "mesa-batilde-image.png",
-    imagemeasures: "mesa-batilde-imageemeasures.png",
+    imagemeasures: "mesa-batilde-imagemeasures.png",
     stock: 1,
     featured: true,
     measures: "Al 74 cm x An 140 cm x Pr 70 cm",
@@ -108,7 +108,7 @@ const products = [
   },
   {
     title: "Sofá Narnia 3 Plazas",
-    imageenvironment: "sofa-narniaimageenvironment.png",
+    imageenvironment: "sofa-narnia-imageenvironment.png",
     description:
       "Sofá 3 plazas tapizado con tela Lido tratamiento Teflón antimanchas. Asientos y respaldo desenfundables. Pies en madera de haya natural.",
     price: 1552,
