@@ -8,36 +8,6 @@ const fs = require("fs");
 const path = require("path");
 const formidable = require("formidable");
 
-// Display a listing of the resource.
-async function getAll(req, res) {
-  console.log("HOLAAAA");
-  return res.json({ url: process.env.SUPABASE_BUCKET_URL });
-
-  try {
-    if (req.query.category) {
-      const products = await getByCategory(req.query.category);
-      if (products) return res.json(products);
-    } else {
-      const max = req.query.limit ? Number(req.query.limit) : 10;
-      const products = req.query.featured
-        ? await Product.findAll({
-          where: {
-            featured: true,
-          },
-          limit: 3,
-        })
-        : await Product.findAll({
-          limit: max,
-        });
-      products.map(product => product.imgBaseUrl = process.env.SUPABASE_BUCKET_URL);
-      console.log(products);
-      if (products) return res.json(products);
-    }
-  } catch (error) {
-    return res.status(500).json({ msg: "Server error" });
-  }
-
-}
 
 // Display a listing of the resource by category
 async function getByCategory(categoryName, res) {
@@ -60,7 +30,7 @@ async function getByCategory(categoryName, res) {
 
 // Display a listing of the resource.
 async function getAll(req, res) {
-  // return res.json({msg:"HOLA ANDY"});
+  // return res.json({ msg: "HOLA ANDY" });
   try {
     if (req.query.category) {
       const products = await getByCategory(req.query.category);
@@ -68,22 +38,21 @@ async function getAll(req, res) {
     } else {
       const max = req.query.limit ? Number(req.query.limit) : 10;
 
+      let products;
       if (req.query.featured) {
-        const products = await Product.findAll({
+        products = await Product.findAll({
           where: {
             featured: true,
           },
           limit: 3,
         });
-        // console.log(products);
-        return res.json(products);
       } else {
-        const products = await Product.findAll({
+        products = await Product.findAll({
           limit: max,
         });
-        // console.log(products);
-        return res.json(products);
       }
+      products.map(product => product.dataValues.imgBaseUrl = process.env.SUPABASE_BUCKET_URL);
+      return res.json(products);
     }
   } catch (error) {
     return res.status(500).json({ msg: "Server error" });
