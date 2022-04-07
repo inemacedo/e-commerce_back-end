@@ -5,27 +5,26 @@
 
 const { Admin, User } = require("../models");
 
-async function catchRole(req, res, next){
-  const user = await User.findOne({
-    where: {
-      email: req.user.sub
-    }
-  });
+async function catchRole(req, res, next) {
 
-  if( user ){
-    req.user.role = "user";
-    return next();
-  }
-  const admin = await Admin.findOne({
-    where: {
-      email: req.user.sub
+  try {
+    console.log(req.user);
+    const user = await User.findByPk(req.user.userID);
+    if (user) {
+      req.user.role = "user";
+      return next();
     }
-  });
-  if( admin ){
-    req.user.role = "admin";
-    return next();
+    const admin = await Admin.findByPk(req.user.adminID);
+    if (admin) {
+      req.user.role = "admin";
+      return next();
+    }
+
+  } catch (error) {
+    console.log(error);
+    return res.status(401).json({ status: 401, msg: "Unauthorized" });
   }
-  return res.status(401).json({ status: 401, msg: "Unauthorized" });
+
 }
 
 module.exports = catchRole;

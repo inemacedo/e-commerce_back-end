@@ -45,14 +45,14 @@ async function getAll(req, res) {
           },
           limit: 3,
         });
-        console.log(products);
+        // console.log(products);
         return res.json(products);
 
       } else {
         const products = await Product.findAll({
           limit: max,
         });
-        console.log(products);
+        // console.log(products);
         return res.json(products);
       }
     }
