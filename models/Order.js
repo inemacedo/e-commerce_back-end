@@ -10,8 +10,7 @@ module.exports = (sequelize, Model, DataTypes) => {
         allowNull: false,
       },
       status: {
-        type: DataTypes.ENUM,
-        values: ["RECIBIDO", "ERROR", "PAGADO", "ENVIADO", "CANCELADO"],
+        type: DataTypes.STRING,
         allowNull: false,
       },
       address: {

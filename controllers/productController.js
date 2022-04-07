@@ -2,8 +2,6 @@ const { Product } = require("../models");
 const { Category } = require("../models/");
 const slugify = require("slugify");
 const { createClient } = require("@supabase/supabase-js");
-const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
-
 const fs = require("fs");
 const path = require("path");
 const formidable = require("formidable");
@@ -79,52 +77,47 @@ async function getOne(req, res) {
 async function store(req, res) {
   const form = formidable({
     multiples: true,
-    uploadDir: __dirname + "../images",
     keepExtensions: true,
   });
+  const uploadImage = async (supabase, name, path, mimetype) => {
+    const { data, error } = await supabase.storage
+      .from("e-commerce")
+      .upload(`products/${name}`, fs.createReadStream(path), {
+        cacheControl: "3600",
+        upsert: false,
+        contentType: mimetype,
+      });
+  };
   form.parse(req, async (err, fields, files) => {
-    const ext = path.extname(files.product.path);
-    const newFileName = `image_${Date.now()}${ext}`;
-    const newFileNameEnvironment = `imageenvironment_${Date.now()}${ext}`;
-    const newFileNameMeasures = `imagemeasures_${Date.now()}${ext}`;
-    const { data, error } = await supabase.storage;
-    console
-      .log(supabase)
-      .from("products")
-      .upload(
-        newFileName,
-        newFileNameEnvironment,
-        newFileNameMeasures,
-        fs.createReadStream(files.product.path),
-        {
-          cacheControl: "3600",
-          upsert: false,
-          contentType: files.product.type,
-        },
-      );
+    const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
+    //fields.image = files.image.newFilename;
+    const imagesName = ["image", "imageenvironment", "imagemeasures"];
+
+    for (const name of imagesName) {
+      uploadImage(supabase, files[name].newFilename, files[name].filepath, files[name].mimetype);
+    }
+    try {
+      const product = await Product.create({
+        title: fields.title,
+        description: fields.description,
+        image: files.image.newFilename,
+        imageenvironment: files.imageenvironment.newFilename,
+        price: fields.price,
+        stock: fields.stock,
+        featured: fields.featured,
+        measures: fields.measures,
+        style: fields.style,
+        material: fields.material,
+        environment: fields.environment,
+        imagemeasures: files.imagemeasures.newFilename,
+        slug: slugify(fields.title),
+        categoryId: fields.categoryId,
+      });
+      if (product) return res.json({ msg: "Product added successfully!" });
+    } catch (error) {
+      return res.status(500).json({ msg: "Server error can't create product" });
+    }
   });
-  try {
-    console.log(req.body);
-    const product = await Product.create({
-      title: req.body.title,
-      description: req.body.description,
-      image: newFileName,
-      imageenvironment: newFileNameEnvironment,
-      price: req.body.price,
-      stock: req.body.stock,
-      featured: req.body.featured,
-      measures: req.body.measures,
-      style: req.body.style,
-      material: req.body.material,
-      environment: req.body.environment,
-      imagemeasures: newFileNameMeasures,
-      slug: slugify(req.body.title),
-      categoryId: req.body.categoryId,
-    });
-    if (product) return res.json({ msg: "Product added successfully!" });
-  } catch (error) {
-    return res.status(500).json({ msg: "Server error can't create product" });
-  }
 }
 
 // Update the specified resource in storage.

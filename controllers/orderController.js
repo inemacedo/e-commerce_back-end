@@ -53,19 +53,21 @@ async function store(req, res) {
   }
 }
 
-// Update the specified resource in storage.
 async function update(req, res) {
   try {
-    const order = Order.findOne({
+    console.log(req.body);
+    const order = await Order.findOne({
       where: {
         id: req.params.id,
       },
     });
-    delete req.body.id;
-    order.update();
-    return res.json({ status: 200, msg: "Ok" });
+    //delete req.body.id;
+    await order.update({
+      ...req.body,
+    });
+    res.json({ status: 200, msg: "Ok" });
   } catch (error) {
-    return res.status(500).json({ status: 500, msg: "Server error" });
+    res.status(500).json({ status: 500, msg: "Server error" });
   }
 }
 
