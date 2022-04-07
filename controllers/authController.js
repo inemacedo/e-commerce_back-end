@@ -14,12 +14,14 @@ async function newToken(req, res) {
       };
       const newJwt = jwt.sign(newPayload, process.env.JWT_SECRET);
 
-      return res.json({ id: user.id, email: user.email, token: newJwt });
+      return res.json({ user, token: newJwt });
     }
     res.status(400).json({ status: 400, msg: "Wrong credentials." });
-
   } catch (error) {
-    if(error.name==="TypeError" && error.message==="Cannot read properties of null (reading 'checkUser')"){
+    if (
+      error.name === "TypeError" &&
+      error.message === "Cannot read properties of null (reading 'checkUser')"
+    ) {
       return res.status(400).json({ status: 400, msg: "Wrong credentials." });
     }
     res.status(500).json({ status: 500, msg: "Server error." });
@@ -41,9 +43,11 @@ async function newAdminToken(req, res) {
       return res.json({ id: admin.id, email: admin.email, token: newJwt });
     }
     res.status(400).json({ status: 400, msg: "Wrong credentials." });
-
   } catch (error) {
-    if(error.name==="TypeError" && error.message==="Cannot read properties of null (reading 'checkAdminPassword')"){
+    if (
+      error.name === "TypeError" &&
+      error.message === "Cannot read properties of null (reading 'checkAdminPassword')"
+    ) {
       return res.status(400).json({ status: 400, msg: "Wrong credentials." });
     }
     res.status(500).json({ status: 500, msg: "Server error." });
