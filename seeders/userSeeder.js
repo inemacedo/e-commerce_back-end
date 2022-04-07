@@ -3,7 +3,7 @@ const users = [
   {
     firstname: "Andy",
     lastname: "Nievas",
-    address: "andy@gmail.com",
+    address: "Montevideo",
     phone: "099123123",
     email: "andy@gmail.com",
     password: "password",
@@ -11,7 +11,7 @@ const users = [
   {
     firstname: "Valentina",
     lastname: "Giusti",
-    address: "vale@gmail.com",
+    address: "Montevideo",
     phone: "099123123",
     email: "vale@gmail.com",
     password: "password",
@@ -19,7 +19,7 @@ const users = [
   {
     firstname: "Ines",
     lastname: "Macedo",
-    address: "ines@gmail.com",
+    address: "Montevideo",
     phone: "099123123",
     email: "ines@gmail.com",
     password: "password",
