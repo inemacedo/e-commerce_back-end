@@ -11,7 +11,6 @@ module.exports = (sequelize, Model, DataTypes) => {
       name: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true
       },
       image: {
         type: DataTypes.STRING(512),

@@ -43,15 +43,12 @@ async function store(req, res) {
 
 // Update the specified resource in storage.
 async function update(req, res) {
-  if( req.params.id===1 )
-  res.status(400).json({ status: 400, msg: "Unauthorized" });
   try {
     const admin = await Admin.findOne({
       where: {
         id: req.params.id
       }
     });
-    delete req.body.email;
     await admin.update({
       ...req.body
     });

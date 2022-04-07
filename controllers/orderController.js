@@ -45,7 +45,7 @@ async function store(req, res) {
   try {
     const user = await User.findByPk(req.user.userID);
     // const totalPrice = await calculateTotal(req.body.cart);
-    console.log(user);
+    // console.log(user);
     const order = await Order.create({
       userId: req.user.userID,
       products: req.body.cart,
@@ -54,7 +54,7 @@ async function store(req, res) {
       paymentMethod: "Tarjeta VISA",
       totalPrice: req.body.total,
     });
-    console.log(totalPrice);
+    // console.log(totalPrice);
     if (order) return res.json(order);
   } catch (error) {
     console.log(error);

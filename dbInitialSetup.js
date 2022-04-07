@@ -12,5 +12,4 @@ module.exports = async () => {
   await require("./seeders/orderSeeder")();
   await require("./seeders/adminSeeder")();
   console.log("[Database] ¡Los datos de prueba fueron insertados!");
-  return "[Database] ¡Los datos de prueba fueron insertados!";
 };
