@@ -8,7 +8,6 @@ const fs = require("fs");
 const path = require("path");
 const formidable = require("formidable");
 
-
 // Display a listing of the resource by category
 async function getByCategory(categoryName, res) {
   try {
@@ -51,7 +50,7 @@ async function getAll(req, res) {
           limit: max,
         });
       }
-      products.map(product => product.dataValues.imgBaseUrl = process.env.SUPABASE_BUCKET_URL);
+      products.map((product) => (product.dataValues.imgBaseUrl = process.env.SUPABASE_BUCKET_URL));
       return res.json(products);
     }
   } catch (error) {
