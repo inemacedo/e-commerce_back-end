@@ -33,7 +33,6 @@ async function getAll(req, res) {
       const products = await getByCategory(req.query.category);
       return res.json(products);
     } else {
-
       const max = req.query.limit ? Number(req.query.limit) : 10;
 
       if (req.query.featured) {
@@ -45,7 +44,6 @@ async function getAll(req, res) {
         });
         // console.log(products);
         return res.json(products);
-
       } else {
         const products = await Product.findAll({
           limit: max,
@@ -119,8 +117,8 @@ async function store(req, res) {
     }
   });
 }
-
-// Update the specified resource in storage.
+//comment
+//Update the specified resource in storage.
 async function update(req, res) {
   try {
     const product = await Product.findByPk(req.params.id);
