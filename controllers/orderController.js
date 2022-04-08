@@ -4,7 +4,12 @@ const { Order, Product, User } = require("../models");
 async function getAll(req, res) {
   try {
     if (req.user.role === "admin") {
-      return res.json(await Order.findAll());
+      return res.json(
+        await Order.findAll({
+          include: { all: true, nested: true },
+          order: [["createdAt", "DESC"]],
+        }),
+      );
     } else if (req.user.role === "user") {
       const orders = await Order.findAll({
         where: {
