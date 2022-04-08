@@ -4,7 +4,10 @@ const { Category } = require("../models");
 async function getAll(req, res) {
   try {
     const categories = await Category.findAll();
-    if (categories) return res.json(categories);
+    if (categories) {
+      categories.map((item) => (item.dataValues.imgBaseUrl = process.env.SUPABASE_BUCKET_URL));
+      return res.json(categories)
+    };
   } catch (error) {
     return res.status(500).json({ msg: "Server error" });
   }
@@ -18,7 +21,10 @@ async function getOne(req, res) {
         id: req.params.id,
       },
     });
-    if (category) return res.json(category);
+    if (category) {
+      category.map((item) => (item.dataValues.imgBaseUrl = process.env.SUPABASE_BUCKET_URL));
+      return res.json(category)
+    };
   } catch (error) {
     return res.status(500).json({ msg: "Server error" });
   }
@@ -48,7 +54,7 @@ async function update(req, res) {
     category.update(req.body);
     return res.json({ status: 200, msg: "Ok" });
   } catch (error) {
-    return res.status(500).json({ status: 500, msg: "Server error" });  
+    return res.status(500).json({ status: 500, msg: "Server error" });
   }
 }
 

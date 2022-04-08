@@ -82,8 +82,8 @@ async function store(req, res) {
   });
   const uploadImage = async (supabase, name, path, mimetype) => {
     const { data, error } = await supabase.storage
-      .from("e-commerce")
-      .upload(`products/${name}`, fs.createReadStream(path), {
+      .from("hackhomee")
+      .upload(`productos/${name}`, fs.createReadStream(path), {
         cacheControl: "3600",
         upsert: false,
         contentType: mimetype,
@@ -95,7 +95,7 @@ async function store(req, res) {
     const imagesName = ["image", "imageenvironment", "imagemeasures"];
 
     for (const name of imagesName) {
-      uploadImage(supabase, files[name].newFilename, files[name].filepath, files[name].mimetype);
+      await uploadImage(supabase, files[name].newFilename, files[name].filepath, files[name].mimetype);
     }
     try {
       const product = await Product.create({
@@ -112,8 +112,17 @@ async function store(req, res) {
         environment: fields.environment,
         imagemeasures: files.imagemeasures.newFilename,
         slug: slugify(fields.title),
-        categoryId: fields.categoryId,
+        categoryId: fields.categoryId
       });
+
+      // const product = await Product.create({
+      //   ...fields,
+      //   image: files.image.newFilename,
+      //   imageenvironment: files.imageenvironment.newFilename,
+      //   imagemeasures: files.imagemeasures.newFilename,
+      //   slug: slugify(fields.title),
+      // });
+
       if (product) return res.json({ msg: "Product added successfully!" });
     } catch (error) {
       return res.status(500).json({ msg: "Server error can't create product" });
