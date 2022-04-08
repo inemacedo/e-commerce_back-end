@@ -82,8 +82,8 @@ async function store(req, res) {
   });
   const uploadImage = async (supabase, name, path, mimetype) => {
     const { data, error } = await supabase.storage
-      .from("hackhomee")
-      .upload(`productos/${name}`, fs.createReadStream(path), {
+      .from("e-commerce")
+      .upload(`products/${name}`, fs.createReadStream(path), {
         cacheControl: "3600",
         upsert: false,
         contentType: mimetype,
