@@ -214,10 +214,8 @@ const products = [
     description:
       "La pieza principal de tu salón es eco. El sofá Noa tiene un diseño que, además de ofrecer confort con su efecto plumón, piensa en verde, ya que todo su tapizado se ha hecho 100% con PET, plástico reciclado recuperado del mar. Ideal para ti y tu ambiente.",
     price: 3700,
-    image:
-      "sofa-noa-image.png",
-    imagemeasures:
-      "sofa-noa-imagemeasures.png",
+    image: "sofa-noa-image.png",
+    imagemeasures: "sofa-noa-imagemeasures.png",
     stock: 1,
     featured: false,
     measures: "Alto 94 cm x Ancho 230 cm x Prof. 100 cm",
@@ -246,12 +244,12 @@ const products = [
   },
   {
     title: "Sofá Obo 3 Plazas",
-    imageenvironment: "sofa-obo-3-plazas-imageenvironment.png",
+    imageenvironment: "sofa-obo-imageenvironment.png",
     description:
       "Sofá de estilo escandinavo tapizado en tela modelo Miss. Pespuntes decorativos en el respaldo. Pies de madera natural",
     price: 2080,
-    image: "sofa-obo-3-plazas-image.png",
-    imagemeasures: "sofa-obo-3-plazas-imagemeasures.png",
+    image: "sofa-obo-image.png",
+    imagemeasures: "sofa-obo-imagemeasures.png",
     stock: 1,
     featured: false,
     measures: "Alto 81  cm x Ancho 190  cm x Prof. 81  cm",
