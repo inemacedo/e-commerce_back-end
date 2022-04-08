@@ -33,6 +33,7 @@ async function getAll(req, res) {
   try {
     if (req.query.category) {
       const products = await getByCategory(req.query.category);
+      products.map((product) => (product.dataValues.imgBaseUrl = process.env.SUPABASE_BUCKET_URL));
       return res.json(products);
     } else {
       const max = req.query.limit ? Number(req.query.limit) : 10;
