@@ -244,12 +244,12 @@ const products = [
   },
   {
     title: "Sofá Obo 3 Plazas",
-    imageenvironment: "sofa-obo-3-plazas-imageenvironment.png",
+    imageenvironment: "sofa-obo-imageenvironment.png",
     description:
       "Sofá de estilo escandinavo tapizado en tela modelo Miss. Pespuntes decorativos en el respaldo. Pies de madera natural",
     price: 2080,
-    image: "sofa-obo-3-plazas-image.png",
-    imagemeasures: "sofa-obo-3-plazas-imagemeasures.png",
+    image: "sofa-obo-image.png",
+    imagemeasures: "sofa-obo-imagemeasures.png",
     stock: 1,
     featured: false,
     measures: "Alto 81  cm x Ancho 190  cm x Prof. 81  cm",
