@@ -12,6 +12,8 @@ orderRoutes.get("/orders/:id", orderController.getOne);
 
 orderRoutes.post("/orders", orderController.store);
 
+orderRoutes.patch("/orders/:id", orderController.update);
+
 orderRoutes.delete("/orders/:id", orderController.destroy);
 
 module.exports = orderRoutes;
