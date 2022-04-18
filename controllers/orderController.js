@@ -76,7 +76,13 @@ async function update(req, res) {
       },
     });
     delete req.body.id;
-    order.update(req.body);
+    if (req.user.role === "user") {
+      order.update({
+        status: "CANCELADO"
+      });
+    } else {
+      order.update(req.body);
+    }
     return res.json({ status: 200, msg: "Ok" });
   } catch (error) {
     return res.status(500).json({ status: 500, msg: "Server error" });

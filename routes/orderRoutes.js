@@ -12,7 +12,7 @@ orderRoutes.get("/orders/:id", orderController.getOne);
 
 orderRoutes.post("/orders", orderController.store);
 
-orderRoutes.patch("/orders/:id", orderController.update);
+orderRoutes.patch("/orders/:id", catchRole, orderController.update);
 
 orderRoutes.delete("/orders/:id", orderController.destroy);
 
