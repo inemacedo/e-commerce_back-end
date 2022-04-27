@@ -261,12 +261,12 @@ const products = [
   },
   {
     title: "Silla Croft - Gris Claro",
-    imageenvironment: "silla-croft-gris-claro-imageenvironment.png",
+    imageenvironment: "silla-croft-imageenvironment.png",
     description:
       "Silla con brazos. Tapizada en tela, parte posterior del asiento acolchado. Pies de madera maciza de fresno",
     price: 525,
-    image: "silla-croft-gris-claro-image.png",
-    imagemeasures: "silla-croft-gris-claro-imagemeasures.png",
+    image: "silla-croft-image.png",
+    imagemeasures: "silla-croft-imagemeasures.png",
     stock: 1,
     featured: false,
     measures: "Alto 80 cm x Ancho 54 cm x Prof. 57 cm",
@@ -278,12 +278,12 @@ const products = [
   },
   {
     title: "Silla Nayme - Beige",
-    imageenvironment: "silla-nayme-beige-imageenvironment.png",
+    imageenvironment: "silla-nayme-imageenvironment.png",
     description:
       "Todo lo bueno ocurre alrededor de una mesa. Así que, escoge bien las sillas y apuesta por aquellas que más hablen de ti. La silla Nayme es exclusiva como tú, al ser de madera maciza de caucho, con tonalidades y vetas únicas",
     price: 275,
-    image: "silla-nayme-beige-image.png",
-    imagemeasures: "silla-nayme-beige-imagemeasures.png",
+    image: "silla-nayme-image.png",
+    imagemeasures: "silla-nayme-imagemeasures.png",
     stock: 1,
     featured: false,
     measures: "Alto 77 cm x Ancho 48 cm x Prof. 50 cm",

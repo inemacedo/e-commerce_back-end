@@ -70,13 +70,19 @@ async function store(req, res) {
 // Update the specified resource in storage.
 async function update(req, res) {
   try {
-    const order = Order.findOne({
+    const order = await Order.findOne({
       where: {
         id: req.params.id,
       },
     });
     delete req.body.id;
-    order.update(req.body);
+    if (req.user.role === "user") {
+      await order.update({
+        status: "CANCELADO"
+      });
+    } else {
+      await order.update(req.body);
+    }
     return res.json({ status: 200, msg: "Ok" });
   } catch (error) {
     return res.status(500).json({ status: 500, msg: "Server error" });
