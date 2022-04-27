@@ -5,17 +5,17 @@ module.exports = async () => {
     {
       name: "mesas",
       image:
-        "https://f.fcdn.app/imgs/ba4121/www.kavehome.com.uy/kaveuy/3ddf/webp/recursos/47/600x0/banner-envio-express.jpg",
+        "https://azioqgupehjwofkjwddr.supabase.co/storage/v1/object/public/e-commerce/categories/mesas2.png",
     },
     {
       name: "sillas",
       image:
-        "https://f.fcdn.app/imgs/a906b6/www.kavehome.com.uy/kaveuy/1433/webp/recursos/46/600x0/banner-1-envio-express.jpg",
+        "https://azioqgupehjwofkjwddr.supabase.co/storage/v1/object/public/e-commerce/categories/sillas2.png",
     },
     {
       name: "sillones",
       image:
-        "https://f.fcdn.app/imgs/91efa9/www.kavehome.com.uy/kaveuy/dad2/webp/recursos/49/600x0/banner-4-envio-express.jpg",
+        "https://azioqgupehjwofkjwddr.supabase.co/storage/v1/object/public/e-commerce/categories/sillones.png",
     },
   ];
 
