@@ -1,20 +1,7 @@
 # Ecommerce api
 
-## Public Routes
+API para el proyecto final del Coding Bootcamp fulltime de Hack Academy "Fullstack Web Development"
 
-GET:    /users  
-GET:    /users/:username  
-POST:   /users  
-GET:    /tweets/random  
-GET:    /tweets/:id  
-POST:   /tokens  
+El cual consiste en un ecommerce completo.
 
-## Private Routes
-### Necesario logearse antes (solicitar token)
-
-**PATCH**:  /users  
-**POST**:   /users/:id/follow  
-**GET**:    /tweets  
-**POST**:   /tweets  
-**DELETE**: /tweets/:id  
-**PATCH**:  /tweets/:id  
+API construida con JavaScript, utilizando Nodejs como entorno de ejecución, el framework express y algunas dependencias menores.
