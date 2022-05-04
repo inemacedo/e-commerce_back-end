@@ -53,11 +53,8 @@ async function store(req, res) {
 // Update the specified resource in storage.
 async function update(req, res) {
   try {
-    const user = await User.findOne({
-      where: {
-        id: req.user.userID,
-      },
-    });
+    const user = await User.findByPk(req.user.userID);
+
     delete req.body.email;
     delete req.body.password;
     await user.update(req.body);
@@ -70,8 +67,15 @@ async function update(req, res) {
 // Remove the specified resource from storage.
 async function destroy(req, res) {
   try {
-    const deletedUser = await User.destroy({ where: { id: req.params.id } });
-    if (deletedUser) return res.json(deletedUser);
+    const user = await User.findByPk(req.params.id);
+    await user.update({
+      firstname: "Usuario",
+      lasttname: "Eliminado",
+      email: `user_${user.id}@email.com`,
+      phone: "0123456789",
+      address: "Usuario eliminado",
+    });
+    return res.json({ status: 200, msg: "Ok" });
   } catch (error) {
     return res.status(500).json({ msg: "Server error" });
   }

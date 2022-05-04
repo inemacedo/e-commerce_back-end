@@ -8,7 +8,7 @@ async function getAll(req, res) {
         include: User,
         order: [["createdAt", "DESC"]],
       });
-      return res.json(orders.filter(order => order.user));
+      return res.json(orders);/* .filter(order => order.user) */
     } else if (req.user.role === "user") {
       const orders = await Order.findAll({
         where: {
